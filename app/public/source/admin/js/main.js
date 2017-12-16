@@ -28,7 +28,7 @@ function load(id){
             $('#soluongban').val(data['SoLuongBan']);
             tinymce.get("mota").setContent(data['MoTa']);
             $('#bixoa').val(data['BiXoa']);
-            $('#featureImage').after('<img src="'+'../../app/public/source/img/product/'+ data['TenSP'] +'/cover/'+data['HinhSP'] + '" width="150">');
+            $('#featureImage').after('<img src="'+'../app/public/source/img/product/'+ data['TenSP'] +'/cover/'+data['HinhSP'] + '" width="150">');
             $('#exampleModal').modal();
         }
     });

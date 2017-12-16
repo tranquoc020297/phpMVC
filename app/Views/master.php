@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php include('modules/header.php') ?>
-    <div style="min-height:600px;">
+    <div >
         <?php include($this->partial) ?>
     </div>
     <?php include('modules/footer.php') ?>
@@ -20,6 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="app/public/source/js/slider.js"></script>
+    
     <script>
         $("#featureImage").on('change',function () {
             filePreview(this);

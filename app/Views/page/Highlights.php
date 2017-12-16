@@ -54,7 +54,10 @@
                 <?= substr($item->MoTa,0,120). '...' ?>
                 <a href="page/detail/<?= $item->MaSP ?>">xem thêm</a> 
                 </div>
+                
             </div>
+            <div>&nbsp;</div>
+            <p> <a href=""><button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Đặt Hàng</span></button></a></p>
         </div>
             <?php } ?>  
         </div>

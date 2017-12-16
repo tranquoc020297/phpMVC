@@ -8,15 +8,15 @@ class Bootstrap{
         // print_r($tokens);
         // echo '</pre>';
         //2. Dispatcher
-        $controllerName = ucfirst($tokens[1].'Controller');
+        $controllerName = ucfirst($tokens[2].'Controller');
         if(file_exists('app/Controllers/'.$controllerName .'.php')):
             require_once('app/Controllers/'.$controllerName .'.php');
             $controller = new $controllerName;
-            if(isset($tokens[3])):
-                $request = $tokens[3];
+            if(isset($tokens[4])):
+                $request = $tokens[4];
             endif;
-            if(isset($tokens[2])):
-                $action = $tokens[2];
+            if(isset($tokens[3])):
+                $action = $tokens[3];
                 $controller->{$action}($request?? null);
             else:
                 $controller->index($request ?? null);
