@@ -12,6 +12,7 @@ class Product{
     public $MaLoaiSP;
     public $MaHangSX;
     public $MoTa;
+
     public function FromJson($obj){
         $data = json_decode($obj,true);
         foreach($data as $key => $val)
@@ -42,7 +43,7 @@ class Product{
             return true;
     }
     public static function find($id){
-        $sql = "SELECT * FROM sanpham WHERE MaSanPham = $id AND BiXoa = FALSE LIMIT 1";
+        $sql = "SELECT * FROM sanpham  WHERE MaSanPham = $id AND  BiXoa = FALSE LIMIT 1 ";
         if($data = Provider::ExecuteNonQuery($sql)){
             $item = new Product;
             while($row = mysqli_fetch_array($data)){
@@ -57,7 +58,9 @@ class Product{
                 $item->SoLuotXem = $row['SoLuotXem'];
                 $item->BiXoa = $row['BiXoa'];
                 $item->MaLoaiSP = $row['MaLoaiSanPham'];
-                $item->MaHangSX = $row['MaHangSanXuat'];
+        
+          
+
             }
             return $item;
         }

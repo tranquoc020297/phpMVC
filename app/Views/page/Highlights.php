@@ -5,26 +5,26 @@
     <div class="row">
         <div class="col-sm-3">
             <a href="">
-                <img src="app/public/source/img/product/lamborghini/6.jpg" width="200px"height="140px" >
+                <img src="app/public/source/img/product/3/6.jpg" width="200px"height="140px" >
                 <p>Lamborghini AVENTADOR S 2017</p>
             </a>
         </div>
         <div class="col-sm-3">
             <a href="">
-                <img src="app/public/source/img/product/lexus/3.jpg"width="200px" height="140px">
+                <img src="app/public/source/img/product/4/3.jpg"width="200px" height="140px">
                 <p>lexus ES350</p>
             </a>
             
         </div>
         <div class="col-sm-3">
             <a href="">
-                <img src="app/public/source/img/product/ferrari/1.jpg"width="200px"height="140px" >
+                <img src="app/public/source/img/product/2/1.jpg"width="200px"height="140px" >
                 <p>Ferrari LAFERRARI</p>
             </a>
         </div>
         <div class="col-sm-3">
             <a href="">
-                <img src="app/public/source/img/product/audi/10.jpg" width="200px"height="140px">
+                <img src="app/public/source/img/product/1/10.jpg" width="200px"height="140px">
                 <p>Audi A8</p>
             </a>
         </div>
@@ -47,7 +47,7 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-6">
-                    <a href=""><img src="app/public/source/img/product/lamborghini/1.jpg" width="200px" height="150" alt=""></a>
+                    <a href=""><img src="app/public/source/img/product/3/1.jpg" width="200px" height="150" alt=""></a>
                 </div>
                 <div class="col-md-6">
                 <a href="page/detail/<?= $item->MaSP ?>"><?= $item->TenSP ?></a>

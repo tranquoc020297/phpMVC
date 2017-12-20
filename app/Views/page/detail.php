@@ -6,5 +6,5 @@
 <p style="color:red"> <?= $this->item->TenSP ?></p>
 <p style="color:red">Giá: <?= $this->item->GiaSP ?>&nbsp;VNĐ</p>
 <p> <?= $this->item->MoTa ?></p>
-<p><img src="../../app/public/source/img/product/<?= $this->type->TenLoaiSP ?>/<?= $this->item->HinhSP ?>" alt="K load dc"></p>
+<p><img src="../../app/public/source/img/product/<?= $this->type->MaLoaiSP ?>/<?= $this->item->HinhSP ?>" width="90%" alt="K load dc"></p>
 </div>
