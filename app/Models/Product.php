@@ -58,22 +58,19 @@ class Product{
                 $item->SoLuotXem = $row['SoLuotXem'];
                 $item->BiXoa = $row['BiXoa'];
                 $item->MaLoaiSP = $row['MaLoaiSanPham'];
-        
-          
-
             }
             return $item;
         }
     }
     public static function all($num = 0){
         $sl = $num !=0 ? "LIMIT $num": "";
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa, SP.MaLoaiSanPham
                 FROM sanpham SP ".$sl;
         if($data = Provider::ExecuteNonQuery($sql))
             return self::convert($data);
     }
     public static function news(){
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa, SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.BiXoa = FALSE
                 ORDER BY SP.NgayNhap DESC LIMIT 0, 10";
@@ -81,23 +78,23 @@ class Product{
             return self::convert($data);
     }
     public static function mostBuy(){
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.BiXoa = FALSE
-                ORDER BY SP.SoLuongBan DESC LIMIT 0, 8";
+                ORDER BY SP.SoLuongBan DESC LIMIT 0, 10";
         if($data = Provider::ExecuteNonQuery($sql))
             return self::convert($data);
     }
     public static function mostView(){
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.BiXoa = FALSE
-                ORDER BY SP.SoLuotXem DESC LIMIT 0, 8";
+                ORDER BY SP.SoLuotXem DESC LIMIT 0, 10";
         if($data = Provider::ExecuteNonQuery($sql))
             return self::convert($data);
     }
     public static function getByType($id){
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaLoaiSanPham = $id AND SP.BiXoa = FALSE
                 ORDER BY SP.SoLuongBan DESC LIMIT 0, 10";
@@ -105,7 +102,7 @@ class Product{
             return self::convert($data);
     }
     public static function getByFactory($id){
-        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaHangSanXuat = $id AND SP.BiXoa = FALSE
                 ORDER BY SP.SoLuongBan DESC LIMIT 0, 10";
@@ -121,6 +118,9 @@ class Product{
             $item->GiaSP = $row['GiaSanPham'];
             $item->HinhSP = $row['HinhURL'];
             $item->MoTa = $row['MoTa'];
+            $item->MaLoaiSP = $row['MaLoaiSanPham'];
+            // $item->SoLuongBan = $row['SoLuongBan'];
+            // $item->SoLuotXem = $row['SoLuotXem'];
             $result[] = $item;
         }
         return $result;

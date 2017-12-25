@@ -13,14 +13,25 @@
 					Sản Phẩm
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Audi</a>
-					<a class="dropdown-item" href="#">Lamborghini</a>
-					<a class="dropdown-item" href="#">Ferrari</a>
-					<a class="dropdown-item" href="#">Porsche</a>
-					<a class="dropdown-item" href="#">Lexus</a>
-					<a class="dropdown-item" href="#">Toyota</a>
+					<?php
+						$typename=ProductType::find($MaLoaiSP);
+						$row=$typename['typename'];
+						foreach($row as $item){
+					?>
+						<a class="dropdown-item" href="#"><?= $item->TenLoaiSP ?></a>
+						<!-- <a class="dropdown-item" href="#">audi</a> -->
+						<!-- <a class="dropdown-item" href="#">Lamborghini</a>
+						<a class="dropdown-item" href="#">Ferrari</a>
+						<a class="dropdown-item" href="#">Porsche</a>
+						<a class="dropdown-item" href="#">Lexus</a>
+						<a class="dropdown-item" href="#">Toyota</a> -->
+					
+					<?php	
+						}
+					?>
 					</div>
-				</li>
+				
+				</li>	
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Bảng Giá
@@ -43,9 +54,7 @@
 			</ul>
 			<a href="http://localhost:21212/webbanhang/index.php?login"><button class="btn btn-outline-primary">Đăng Nhập</button></a>
 			<div>&nbsp;&nbsp;</div>
-			<a href="http://localhost:21212/webbanhang/index.php?sign"><button class="btn btn-outline-primary">Đăng Ký</button></a>
-			
-			
+			<a href="http://localhost:21212/webbanhang/index.php?sign"><button class="btn btn-outline-primary">Đăng Ký</button></a>		
 			<div>&nbsp;&nbsp;</div>
 			<a href="http://localhost:21212/webbanhang/index.php?cart">
 			<button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Giỏ Hàng</span></button>

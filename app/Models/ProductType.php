@@ -20,8 +20,8 @@ class ProductType{
             return true;
     }
 
-    public function find($id){
-        $sql = "SELECT TenLoaiSanPham FROM loaisanpham WHERE MaLoaiSanPham = $id AND BiXoa = FALSE LIMIT 1";
+    public static function find($MaLoaiSP){
+        $sql = "SELECT TenLoaiSanPham FROM loaisanpham WHERE MaLoaiSanPham = $MaLoaiSP AND BiXoa = FALSE LIMIT 1";
         if($data = Provider::ExecuteNonQuery($sql)){
             $item = new Product;
             while($row = mysqli_fetch_array($data)){
