@@ -1,17 +1,17 @@
 //Load edit form
-function edit(id){
-    load(id);
+function editProduct(id){
+    loadProduct(id);
 }
 
 //Show item by ID
-function show(id){
-    load(id);
-    $('#save').prop('disabled',true);
+function showProduct(id){
+    loadProduct(id);
+    $('#saveProduct').prop('disabled',true);
 }
 
 
 //Load data using ajax
-function load(id){
+function loadProduct(id){
     $.ajax({
         type: "POST",
         url: "show",
@@ -26,23 +26,24 @@ function load(id){
             $('#hang').val(data['MaHangSX']);
             $('#soluongton').val(data['SoLuongTon']);
             $('#soluongban').val(data['SoLuongBan']);
-            tinymce.get("mota").setContent(data['MoTa']);
+            tinymce.get("mota").setContent(data['MoTa'] + " ");
             $('#bixoa').val(data['BiXoa']);
             $('#featureImage').after('<img src="'+'../app/public/source/img/product/'+ data['MaLoaiSP'] +'/' + data['HinhSP'] + '" width="150">');
             $('#exampleModal').modal();
+       
         }
     });
 }
 
 
 //Clear form when model closing
-$('#exampleModal').on('hide.bs.modal',function(){
-    clear();
+$('#productModal').on('hide.bs.modal',function(){
+    clearProduct();
 });
 
 
 //Call API save Item
-$('#save').on('click',function(){
+$('#saveProduct').on('click',function(){
     var ma = $('#ma').val();
     var ten = $('#ten').val();
     var gia = $('#gia').val();
@@ -62,16 +63,16 @@ $('#save').on('click',function(){
                 };
     $.ajax({
         type: "POST",
-        url: "save",
+        url: "saveProduct",
         data: {'sp':JSON.stringify(dulieu)},
         success: function(response) {
             if(response == '0'){
                 alert('Lưu thành công');
                 if(id==null)
-                    saverow(dulieu,0);
+                    saverowProduct(dulieu,0);
                 else
-                    saverow(dulieu,1);
-                clear();
+                    saverowProduct(dulieu,1);
+                clearProduct();
             }
             else
                 alert(response);
@@ -80,7 +81,7 @@ $('#save').on('click',function(){
 });
 
 //Clear form
-var clear = function(){
+var clearProduct = function(){
     $('#ma').val('');
     $('#ngaynhap').val('');
     $('#ten').val('');
@@ -112,7 +113,7 @@ function filePreview(input) {
 
 
 //Save row after call API success
-function saverow(data,status){
+function saveRowProduct(data,status){
     var lastRowID = $('table tbody tr:last').prop('id').substr(2);
     var id = status == 0?parseInt(lastRowID)+1:data.MaSP;
     var content =
@@ -123,9 +124,9 @@ function saverow(data,status){
         '<td>'+data.HinhSP+'</td>'+
         '<td>'+data.MoTa.substr(0, 90)+'..</td>'+
         '<td style="text-align:right">'+
-            '<button onclick="show('+id+')" id="xem" class="btn btn-info">Xem</button>&nbsp;&nbsp'+
-            '<button onclick="edit('+id+')" id="sua" class="btn btn-warning">Sửa</button>&nbsp;&nbsp'+
-            '<button onclick="delete('+id+')"id="xoa" class="btn btn-danger">Xóa</button>'+
+            '<button onclick="showProduct('+id+')" id="xem" class="btn btn-info">Xem</button>&nbsp;&nbsp'+
+            '<button onclick="editProduct('+id+')" id="sua" class="btn btn-warning">Sửa</button>&nbsp;&nbsp'+
+            '<button onclick="deleteProduct('+id+')"id="xoa" class="btn btn-danger">Xóa</button>'+
         '</td>'+
     '</tr>';
     if(status == 0)

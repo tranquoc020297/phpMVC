@@ -26,7 +26,7 @@
                 
             </div>
             <div>&nbsp;</div>
-            <p> <a href=""><button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Đặt Hàng</span></button></a></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a></p>
    
         </div>
             <?php } ?>  
@@ -63,7 +63,7 @@
                 
             </div>
             <div>&nbsp;</div>
-            <p> <a href=""><button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Đặt Hàng</span></button></a></p>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a></p>
         </div>
             <?php } ?>  
         </div>
@@ -74,8 +74,6 @@
     <h3>Sản Phẩm Bán Nhiều Nhất</h3>
     </div>
 
-    <div style="height:10%">&nbsp;</div>
-    
     <?php 
         $products = Product::mostBuy();
         $mangsp = array_chunk($products,2);
@@ -101,7 +99,7 @@
                 
             </div>
             <div>&nbsp;</div>
-            <p> <a href=""><button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Đặt Hàng</span></button></a> </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a> </p>
            
         </div>
             <?php } ?>  

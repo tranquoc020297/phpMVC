@@ -19,6 +19,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="../app/public/source/admin/css/custom.css">
     <link rel="stylesheet" href="../app/public/source/css/scroll.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
   </head>
@@ -32,7 +33,6 @@
         <?php include('modules/footer.php') ?>
     </div>
     <!-- Javascript files-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="../app/public/source/admin/vendor/jquery-validation/jquery.validate.min.js"></script>
@@ -40,8 +40,7 @@
     <script src="../app/public/source/admin/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
     <script src="../app/public/source/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="../app/public/source/admin/js/front.js"></script>
-    <script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/init-tinymce.js"></script>
-    <script src="../app/public/source/admin/js/main.js"></script>
+  
+   
   </body>
 </html>

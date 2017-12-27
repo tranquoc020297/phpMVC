@@ -14,7 +14,7 @@
                   <table class="table table-striped table-sm">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Tên</th>
                         <th>Giá</th>
                         <th>Hình</th>
@@ -37,9 +37,10 @@
                         <td>..</td>
                         <td>..</td>
                         <td>..</td>
-                      </tr>
+                    </tr>
                     </tbody>
                   </table>
+
                   <div style="text-align:center">
                     <a href="products"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
@@ -55,7 +56,7 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Tên</th>
                       </tr>
                     </thead>
@@ -68,6 +69,7 @@
                     <?php endforeach ?>
                     </tbody>
                   </table>
+
                   <div style="text-align:center">
                     <a href="types"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
@@ -83,7 +85,7 @@
                   <table class="table table-striped table-sm">
                       <thead>
                           <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Tên</th>
                             <th>Logo</th>
                           </tr>
@@ -98,6 +100,7 @@
                       <?php endforeach ?>
                       </tbody>
                   </table>
+
                   <div style="text-align:center">
                     <a href="factories"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
@@ -107,34 +110,38 @@
             <div class="col-lg-6">
               <div class="card">
                 <div class="card-header d-flex align-items-center">
-                  <h2 class="h5 display">Striped table with hover effect</h2>
+                  <h2 class="h5 display">Tài Khoản</h2>
                 </div>
                 <div class="card-body">
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>ID</th>
+                        <th>Tên Đăng Nhập</th>
+                        <th>Tên Hiển Thị</th>
+                        <th>Điện Thoại</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                     
+                    <?php foreach(User::all() as $item):?>
+                    <tr>
+                        <th scope="row"><?= $item->MaTaiKhoan ?></th>
+                        <td><?= $item->TenDangNhap ?></td>
+                        <td><?= $item->TenHienThi ?></td>
+                        <td><?= $item->DienThoai ?></td>
+                        <td><?= $item->Email ?></td>
+                    </tr>
+                    <?php endforeach ?>
                     </tbody>
                   </table>
+                  
                   <div style="text-align:center">
-                    <a href="#"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
+                    <a href="users"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      <div style="margin: 5% 0"></div>
+</section>

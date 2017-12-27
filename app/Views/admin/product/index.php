@@ -8,7 +8,7 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Tên</th>
             <th>Giá</th>
             <th>Hình</th>
@@ -25,12 +25,15 @@
             <td><?= $item->HinhSP ?></td>
             <td><?= substr($item->MoTa,0,100)?>..</td>
             <td style="text-align:right">
-                <button onclick="show(<?= $item->MaSP ?>)" id="xem" class="btn btn-info">Xem</button>&nbsp;
-                <button onclick="edit(<?= $item->MaSP ?>)" id="sua" class="btn btn-warning">Sửa</button>&nbsp;
-                <button id="xoa" class="btn btn-danger">Xóa</button>
+                <button onclick="showProduct(<?= $item->MaSP ?>)" id="xem" class="btn btn-info">Xem</button>&nbsp;
+                <button onclick="editProduct(<?= $item->MaSP ?>)" id="sua" class="btn btn-warning">Sửa</button>&nbsp;
+                <button onclick="deleteProduct(<?= $item->MaSP ?>)" id="xoa" class="btn btn-danger">Xóa</button>
             </td>
         </tr>
     <?php endforeach ?>
     </tbody>
 </table>
 </div>
+<script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/init-tinymce.js"></script>
+<script src="../app/public/source/admin/js/main.js"></script>

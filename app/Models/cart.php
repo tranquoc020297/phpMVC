@@ -27,7 +27,7 @@ class Cart
 	}
 	//get item[i] price
 	public function itemPrice($item){
-		return $item->promotion_price == 0?$item->unit_price:$item->promotion_price; 
+		return $item->GiaSP;
 	}
 	//xóa 1
 	public function reduceByOne($id){

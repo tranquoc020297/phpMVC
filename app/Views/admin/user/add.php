@@ -1,6 +1,6 @@
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add User</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModal">Thêm User</button>
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,36 +9,58 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <form id="uploadForm">
             <div class="row">
                 <div class="form-group col-6">
-                    <label for="firstname" class="col-form-label">First Name</label>
-                    <input class="form-control" type="text" name="firstname">
+                    <label for="tendangnhap" class="col-form-label">Tên Đăng Nhập</label>
+                    <input class="form-control" type="text" name="tendangnhap" id="tendangnhap">
                 </div>
                 <div class="form-group col-6">
-                    <label for="lastname" class="col-form-label">Last Name</label>
-                    <input class="form-control" type="text" name="lastname">
+                    <label for="matkhau" class="col-form-label">Mật Khẩu</label>
+                    <input class="form-control" type="text" name="matkhau" id="matkhau">
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-6">
-                    <label for="email" class="col-form-label">Email</label>
-                    <input class="form-control" type="email" name="email">
+                    <label for="tenhienthi" class="col-form-label">Tên Hiển Thị</label>
+                    <input class="form-control" type="email" name="tenhienthi" id="tenhienthi">
                 </div>
+                
                 <div class="form-group col-6">
-                    <label for="age" class="col-form-label">Age</label>
-                    <input class="form-control" type="text" name="age">
+                    <label for="diachi" class="col-form-label">Địa Chỉ</label>
+                    <input class="form-control" type="text" name="diachi" id="diachi">
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-6">
-                    <label for="location" class="col-form-label">Location</label>
-                    <input class="form-control" type="text" name="location">
+                    <label for="dienthoai" class="col-form-label">Điện Thoại</label>
+                    <input class="form-control" type="text" name="dienthoai" id="dienthoai">
                 </div>
-                <div class="form-group col-6" id="previewImage">
-                    <label for="file">Image</label>
-                    <input class="form-control" type="file" name="featureImage" id="featureImage">
+                <div class="form-group col-6">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="bixoa" class="col-form-label">Bị Xóa</label>
+                    <select name="bixoa" id="bixoa" class="form-control">
+                        <option value="0">Chưa xóa</option>
+                        <option value="1">Đã Xóa</option>
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <label for="loaitaikhoan" class="col-form-label">Loại Tài Khoản</label>
+                    <select name="loaitaikhoan" id="loaitaikhoan" class="form-control">
+                        <?php foreach (UserType::all() as $item): ?>
+                        <option value="<?= $item->MaLoaiTaiKhoan ?>"><?= $item->TenLoaiTaiKhoan ?></option>
+                        <?php endforeach ?>
+                    </select>
                 </div>
             </div>
             
@@ -46,7 +68,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary" id="saveUser">Save</button>
       </div>
     </div>
   </div>

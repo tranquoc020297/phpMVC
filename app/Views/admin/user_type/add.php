@@ -1,21 +1,17 @@
-<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Thêm</span></button>
+<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Type</span></button>
 <!-- Modal-->
 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
 <div role="document" class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title">Thêm mới hãng sản xuất</h5>
+        <h5 id="exampleModalLabel" class="modal-title">Thêm mới loại tài khoản</h5>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
     </div>
     <div class="modal-body">
         <form>
             <div class="form-group">
                 <label class="col-form-label">Tên</label>
-                <input type="text" placeholder="Nhập tên hãng" class="form-control" id="ten">
-            </div>
-            <div class="form-group" id="previewImage">
-                <label class="col-form-label">Logo</label>
-                <input type="file" placeholder="Nhập tên loại" class="form-control" id="featureImage">
+                <input type="text" placeholder="Nhập tên loại" class="form-control" id="ten">
             </div>
         </form>
     </div>

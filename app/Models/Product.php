@@ -62,6 +62,11 @@ class Product{
             return $item;
         }
     }
+    public static function findByName($name){
+        $sql = "SELECT * FROM sanpham WHERE TenSanPham LIKE '%$name%' AND BiXoa = FALSE LIMIT 10";
+        if($data = Provider::ExecuteNonQuery($sql))
+            return self::convert($data);
+    }
     public static function all($num = 0){
         $sl = $num !=0 ? "LIMIT $num": "";
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa, SP.MaLoaiSanPham
@@ -97,7 +102,15 @@ class Product{
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaLoaiSanPham = $id AND SP.BiXoa = FALSE
-                ORDER BY SP.SoLuongBan DESC LIMIT 0, 10";
+                ORDER BY SP.SoLuongBan DESC LIMIT 0,4";
+        if($data = Provider::ExecuteNonQuery($sql))
+            return self::convert($data);
+    }
+    public static function getType($id){
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
+                FROM sanpham SP
+                WHERE SP.MaLoaiSanPham = $id AND SP.BiXoa = FALSE
+                ORDER BY SP.SoLuongBan DESC";
         if($data = Provider::ExecuteNonQuery($sql))
             return self::convert($data);
     }
@@ -109,6 +122,29 @@ class Product{
         if($data = Provider::ExecuteNonQuery($sql))
             return self::convert($data);
     }
+    public static function search($prices,$types){
+        $priceString = '';
+        $typeString = '';
+        if($prices)
+            $priceString = 'SP.GiaSanPham IN('.implode(',', $prices).')';
+        if($types)
+            $typeString = 'SP.MaLoaiSanPham IN('.implode(',', $types).')';
+        $whereCondition = '';
+        if($typeString != '' && $priceString != '')
+            $whereCondition = "WHERE $priceString AND $typeString";
+        else if($typeString == '' && $priceString != '')
+            $whereCondition = "WHERE $priceString";
+        else 
+            $whereCondition = "WHERE $typeString";
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+        FROM sanpham SP
+        $whereCondition
+        ORDER BY SP.SoLuongBan DESC LIMIT 0, 8";
+
+        if($data = Provider::ExecuteNonQuery($sql))
+            return self::convert($data);
+    }
+
     static function convert($data){
         $result = array();
         while($row = mysqli_fetch_array($data)){

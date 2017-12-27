@@ -17,8 +17,11 @@
             <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="pages-nav-list" class="collapse list-unstyled">
             <li> <a href="products">Sản Phẩm</a></li>
-            <li> <a href="types">Loại Sản Phẩm</a></li>
+            <li> <a href="producttypes">Loại Sản Phẩm</a></li>
             <li> <a href="factories">Hãng Sản Xuất</a></li>
+            <li> <a href="users">Tài Khoản</a></li>
+            <li> <a href="usertypes">Loại Tài Khoản</a></li>
+            <li> <a href="bills">Đơn Đặt Hàng</a></li>
           </ul>
         </li>
       </ul>

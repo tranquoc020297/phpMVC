@@ -8,7 +8,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Tên</th>
             <th>Logo</th>
             <th style="text-align:right">Thao Tác</th>
@@ -20,7 +20,12 @@
                 <th scope="row"><?= $item->MaHangSX ?></th>
                 <td><?= $item->TenHangSX ?></td>
                 <td><?= $item->HinhHangSX ?></td>
-                <td style="text-align:right"><a href="#"><button class="btn btn-warning">Sửa</button></a>&nbsp;<a href="#"><button class="btn btn-danger">Xóa</button></a></td>
+                <td style="text-align:right">
+                    <a href="#"><button class="btn btn-warning">Sửa</button></a>
+                    &nbsp;
+                    <a href="#"><button class="btn btn-danger">Xóa</button>
+                    </a>
+                </td>
             </tr>
         <?php endforeach ?>
         </tbody>
