@@ -1,4 +1,5 @@
-<form action="#" class="form-group" ></form>
+<div style="margin: 5% 0"></div>
+<form action="#" class="form-group" >
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -63,25 +64,32 @@
         <div class="col-md-6">
             <div class="container">
                 <h2>Chi Tiết Đơn Hàng</h2>
-                <img src="" alt="Chưa có hình">
-                <p>The .thumbnail class can be used to display an image gallery.</p>
-                <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
-                <p>Click on the images to enlarge them.</p>
                 <div class="row">
+                    <?php
+                        if(Session::has('cart')):
+                            foreach(Session::get('cart')->items as $item):
+                    ?>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="/w3images/lights.jpg" target="_blank">
-                                <img src="loc2.png" alt="Lights" style="width:100%">
+                            <a href="<?= route('page','detail',$item['item']->MaSP) ?>" target="_blank">
+                                <img src="source/img/product/<?= trim($item['item']->MaLoaiSP)?>/<?=trim($item['item']->HinhSP)?>" alt="Không có" style="width:100%;height:100px;">
                                 <div class="caption">
-                                  <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                  <span><?= $item['item']->TenSP ?></span>
+                                  <br>
+                                  <span><?= $item['item']->GiaSP ?></span>
+                                  <br>
+                                  <span>Số lượng: <?= $item['qty'] ?></span>
+                                  <hr>
                                 </div>
                             </a>
                         </div>
                     </div>
+                    <?php endforeach; endif; ?>
                 </div>
+                <h3>Tổng Tiền: <?= Session::has('cart')?Session::get('cart')->totalPrice:0 ?></h3>
             </div>
         </div>
     </div>
 </div>
 </form>
-
+<div style="margin: 5% 0"></div>

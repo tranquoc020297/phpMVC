@@ -8,7 +8,7 @@ function find(ten){
     var flag = false;
     $.ajax({
         type:"POST",
-        url:"find",
+        url:"http://localhost:21212/phpMVC/auth/find",
         async: false, 
         data:{'tendangnhap':ten},
         success: function(response) {
@@ -22,15 +22,19 @@ function find(ten){
 function save(dulieu){
     $.ajax({
         type:"POST",
-        url:"save",
+        url:"http://localhost:21212/phpMVC/auth/save",
         data:{usr:dulieu},
-        success: function(response) {
+        beforeSend:()=>$('#signUp').text('Loading..'),
+        success: (response) => {
             if(response == '0'){
                 alert('Đăng ký thành công');
                 $('#signUpModal').modal('toggle');
+                $('#signUp').text('Đăng ký');
             }
-            else
+            else{
                 alert('Đăng ký thất bại');
+                $('#signUp').text('Đăng ký');
+            }
         }
     });
 }
@@ -101,19 +105,18 @@ function warningAlert(message){
 $('#login').on('click',function(){
     var username = $('#login-username').val();
     var password = $('#login-password').val();
-
     if($.trim(username).length > 0 && $.trim(password).length > 0)
     {
         $('#error').prop('hidden',true);
         $.ajax({
-            url:'submitLogin',
+            url:'http://localhost:21212/phpMVC/auth/submitLogin',
             method:"POST",
             data:{username,password},
             cache:false,
             beforeSend:() => $('#login').val('Đang kết nối...'),
             success:(response) => {
                 if(response == '0'){
-                    window.location.replace("../admin");
+                    window.location.replace("http://localhost:21212/phpMVC/admin");
                 }
                 else{
                     loginError();

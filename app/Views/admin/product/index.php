@@ -34,6 +34,6 @@
     </tbody>
 </table>
 </div>
-<script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/tinymce.min.js"></script>
-<script type="text/javascript" src="../app/public/source/admin/plugin/tinymce/init-tinymce.js"></script>
-<script src="../app/public/source/admin/js/main.js"></script>
+<script type="text/javascript" src="source/admin/plugin/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="source/admin/plugin/tinymce/init-tinymce.js"></script>
+<script src="source/admin/js/main.js"></script>

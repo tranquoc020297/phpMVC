@@ -17,11 +17,13 @@
                     <label for="ten" class="col-form-label">Tên</label>
                     <input class="form-control" type="text" name="name" id="ten">
                 </div>
+
                 <div class="form-group col-6">
                     <label for="gia" class="col-form-label">Giá</label>
                     <input class="form-control" name="gia" id="gia">
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-6">
                     <label for="loai" class="col-form-label">Loại</label>
@@ -31,6 +33,7 @@
                         <?php endforeach ?>
                     </select>
                 </div>
+                
                 <div class="form-group col-6">
                     <label for="nsx" class="col-form-label">Hãng Sản Xuất</label>
                     <select name="hang" id="hang" class="form-control">
@@ -40,6 +43,7 @@
                     </select>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-6">
                     <label for="soluongton" class="col-form-label">Số Lượng Tồn</label>
@@ -50,6 +54,7 @@
                     <input class="form-control" type="text" name="soluongban" id="soluongban">
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-6">
                     <label for="bixoa" class="col-form-label">Bị Xóa</label>
@@ -63,6 +68,7 @@
                     <input class="form-control" type="file" name="featureImage" id="featureImage">
                 </div>
             </div>
+            
             <div class="row">
                 <div class="form-group col-12">
                     <label for="file" class="col-form-label">Mô Tả</label>

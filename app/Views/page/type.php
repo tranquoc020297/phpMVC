@@ -17,14 +17,21 @@
             <div>&nbsp;</div>
             <div class="row">
                 <div class="col-6">
-                    <a href="../../page/detail/<?= $item->MaSP ?>">
-                    <img src="../../app/public/source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" width="90%" alt="K load dc">
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">
+                        <img src="source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" width="90%" alt="K load dc">
                     </a>
                 </div>
                 <div class="col-6">
                     <?= substr($item->MoTa,0,150). '...' ?>
-                    <a href="../../page/detail/<?= $item->MaSP ?>">Xem Chi Tiết
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">Xem Chi Tiết
                     </a>
+                    <p style="text-align:center">
+                        <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)">
+                            <button class="btn btn-outline-info" style="float:center">
+                                Thêm<span class="fa fa-cart-arrow-down"></span>
+                            </button>
+                        </a>
+                    </p>
                 </div>
                 <div style="height:10%">&nbsp;</div>
             </div>
@@ -35,18 +42,15 @@
 </div>
 <center>
 <?php
-    $item=$this->types;
+    $item=$this->types[0];
     $sum=$this->phantrang;
     $sumtong=count($sum);
     $sumtrang=ceil($sumtong/4);
-    for($i=1; $i<=$sumtrang;$i++){
+    for($i=1; $i<=$sumtrang;$i++):
 ?>
     
-    <a href="../../phpMVC/page/type/<?=$item->MaLoaiSP?>&<?= $i ?>"><?= $i ?></a>
+    <a href="<?= route('page','type',$item->MaLoaiSP)?>&trang=<?= $i ?>"><?= $i ?></a>
 
-<?php
-   
-    }
-?>
+<?php endfor; ?>
    
 </center>

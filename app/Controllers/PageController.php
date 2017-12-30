@@ -30,7 +30,6 @@ class PageController extends Controller{
         Session::put('cart',$cart);
         print_r(json_encode(Session::get('cart')));
     }
-
     public function reduceCart(){
         $oldCart = Session::has('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
@@ -41,10 +40,8 @@ class PageController extends Controller{
             Session::forget('cart');
         if(Session::has('cart')){
             print_r(json_encode(Session::get('cart')));
-            return;
         }
     }
-
     public function reduceCartByOne(){
         $oldCart = Session::has('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
@@ -55,14 +52,17 @@ class PageController extends Controller{
             Session::forget('cart');
         if(Session::has('cart')){
             print_r(json_encode(Session::get('cart')));
-            return;
         }
+    }
+
+    public function removeAllCart(){
+        Session::forget('cart');
     }
 
     public function search(){
         $this->items = [];
-        if(isset($_POST['key']))
-            $this->items = Product::findByName($_POST['key']);
+        if(isset($_GET['key']))
+            $this->items = Product::findByName($_GET['key']);
         else
             $this->items = Product::all(8);
         return $this->view('page.search','master','items');

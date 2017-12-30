@@ -16,18 +16,25 @@
         <div class="col-6">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="page/detail/<?= $item->MaSP ?>"> <img src="app/public/source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">
+                        <img src="source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc">
+                    </a>
                 </div>
                 <div class="col-md-6">
-                <a href="page/detail/<?= $item->MaSP ?>"><?= $item->TenSP ?></a>
-                <?= substr($item->MoTa,0,150). '...' ?>
-                <a href="page/detail/<?= $item->MaSP ?>">xem thêm</a> 
+                    <a href="<?= route('page','detail',$item->MaSP) ?>"><?= $item->TenSP ?></a>
+                    <?= substr($item->MoTa,0,150). '...' ?>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">xem thêm</a>
+                    <p style="text-align:center">
+                        <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)">
+                            <button class="btn btn-outline-info" style="float:center">
+                                Thêm<span class="fa fa-cart-arrow-down"></span>
+                            </button>
+                        </a>
+                    </p>
                 </div>
                 
             </div>
-            <div>&nbsp;</div>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a></p>
-   
+            <div>&nbsp;</div>  
         </div>
             <?php } ?>  
         </div>
@@ -53,17 +60,22 @@
         <div class="col-6">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="page/detail/<?= $item->MaSP ?>"> <img src="app/public/source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>"> <img src="source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
                 </div>
                 <div class="col-md-6">
-                <a href="page/detail/<?= $item->MaSP ?>"><?= $item->TenSP ?></a>
-                <?= substr($item->MoTa,0,150). '...' ?>
-                <a href="page/detail/<?= $item->MaSP ?>">xem thêm</a> 
+                    <a href="<?= route('page','detail',$item->MaSP) ?>"><?= $item->TenSP ?></a>
+                    <?= substr($item->MoTa,0,150). '...' ?>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">xem thêm</a>
+                    <p style="text-align:center">
+                        <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)">
+                            <button class="btn btn-outline-info" style="float:center">
+                                Thêm<span class="fa fa-cart-arrow-down"></span>
+                            </button>
+                        </a>
+                    </p>
                 </div>
-                
             </div>
             <div>&nbsp;</div>
-            <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a></p>
         </div>
             <?php } ?>  
         </div>
@@ -88,19 +100,22 @@
         <div class="col-6">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="page/detail/<?= $item->MaSP ?>"> <img src="app/public/source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>"> <img src="source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
                 </div>
                 <div class="col-md-6">
-                <a href="page/detail/<?= $item->MaSP ?>"><?= $item->TenSP ?></a>
-                <?= substr($item->MoTa,0,150). '...' ?>
-                <a href="page/detail/<?= $item->MaSP ?>">xem thêm</a> 
-                
+                    <a href="<?= route('page','detail',$item->MaSP) ?>"><?= $item->TenSP ?></a>
+                    <?= substr($item->MoTa,0,150).'...' ?>
+                    <a href="<?= route('page','detail',$item->MaSP) ?>">xem thêm</a> 
+                    <p style="text-align:center">
+                        <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)">
+                            <button class="btn btn-outline-info" style="float:center">
+                                Thêm<span class="fa fa-cart-arrow-down"></span>
+                            </button>
+                        </a>
+                    </p>
                 </div>
-                
             </div>
             <div>&nbsp;</div>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:center">Thêm<span class="fa fa-cart-arrow-down"></span></button></a> </p>
-           
         </div>
             <?php } ?>  
         </div>

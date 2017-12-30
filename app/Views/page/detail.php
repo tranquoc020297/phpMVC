@@ -7,5 +7,5 @@
 <p> <?= $this->item->MoTa ?></p>
 <p> Lượt Xem <?= $this->item->SoLuotXem ?></p>
 <p> Số Lượng Đã Bán <?= $this->item->SoLuongBan?></p>
-<p><img src="../../app/public/source/img/product/<?= $this->item->MaLoaiSP ?>/<?= $this->item->HinhSP ?>" width="90%" alt="K load dc"></p>
+<p><img src="source/img/product/<?= $this->item->MaLoaiSP ?>/<?= $this->item->HinhSP ?>" width="90%" alt="K load dc"></p>
 </div>

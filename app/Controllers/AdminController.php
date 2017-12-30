@@ -1,5 +1,10 @@
 <?php
 require_once('libs/autoload.php');
+if(!Session::has('auth')):
+    header("location:".route('auth','login'));
+elseif(Session::get('auth')->role != 1):
+    header("location:".route('page','index'));
+endif;
 class AdminController extends Controller{
     public function index(){
         return $this->view('modules.table','admin.dashdoard');

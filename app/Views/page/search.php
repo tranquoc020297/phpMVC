@@ -4,15 +4,25 @@
 <div id="resultSearch"><h3 class="alert alert-success"><?= count($this->items) ?> Kết quả</h3></div>
 <div class="row" style="margin:5% 0" id="searchBody">
     <?php foreach($this->items as $item): ?>
-    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated fadeInLeft"  style="background-image:url(../app/public/source/img/product/<?= $item->TenSP) ?>/<?= $item->HinhSP ?>)">
-        <div class="project-hover" id="sp<?=$item->MaSP ?>">
-            <h2><?= $item->TenSP ?></h2>
-            <h4><span><?= $item->GiaSP ?><i class="fa fa-diamond" aria-hidden="true"></i></span></h4>
-            <hr />
-            <p><?= substr($item->MoTa,  0, 90) ?>..</p>
-            <a href="Page/Detail/<?= $item->MaSP ?>">Chi tiết</a>
-            <a href="javascript:;" onclick="addCart(<?= $item->MaSP ?>)"><span class="fa fa-cart-arrow-down"></span></a>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="<?= route('page','detail',$item->MaSP) ?>"> <img src="source/img/product/<?= $item->MaLoaiSP?>/<?= $item->HinhSP ?>" width="90%" height="150px" alt="K load dc"></a>
+            </div>
+            <div class="col-md-6">
+                <a href="<?= route('page','detail',$item->MaSP) ?>"><?= $item->TenSP ?></a>
+                <?= substr($item->MoTa,0,150). '...' ?>
+                <a href="<?= route('page','detail',$item->MaSP) ?>">xem thêm</a> 
+            </div>        
         </div>
+        <div>&nbsp;</div>
+        <p style="text-algin:center">
+            <a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)">
+                <button class="btn btn-outline-info" style="float:center">
+                    Thêm<span class="fa fa-cart-arrow-down"></span>
+                </button>
+            </a>
+        </p>
     </div>
     <?php endforeach; ?>
     

@@ -1,33 +1,33 @@
 <div class="content display-container">
     <div class="mySlides animate-fading">
-        <a href=""><img src="app/public/source/img/product/slider/1.jpg" style="width:100%">
+        <a href=""><img src="source/img/product/slider/1.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Porsche</strong></h1>
         </div>
         </a>
     </div>
     <div class="mySlides animate-fading">
-        <img src="app/public/source/img/product/slider/2.jpg" style="width:100%">
+        <img src="source/img/product/slider/2.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Lamporghini</strong></h1>
         </div>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="app/public/source/img/product/slider/3.jpg" style="width:100%">
+        <a href=""><img src="source/img/product/slider/3.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Ferrari</strong></h1>
         </div>
         </a>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="app/public/source/img/product/slider/4.jpg" style="width:100%">
+        <a href=""><img src="source/img/product/slider/4.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Lexus</strong></h1>
         </div>
         </a>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="app/public/source/img/product/slider/5.jpg" style="width:100%">
+        <a href=""><img src="source/img/product/slider/5.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Audi</strong></h1>
         </div>
@@ -57,3 +57,4 @@
 <?php
 	include('Highlights.php');
 ?>
+<script src="source/js/slider.js"></script>

@@ -12,7 +12,7 @@ class Cart
 		}
 	}
 	public function add($item, $id){
-		$realprice = $item->promotion_price == 0 ? $item->unit_price: $item->promotion_price;
+		$realprice = $item->GiaSP;
 		$giohang = ['qty'=> 0, 'price' => $realprice, 'item' => $item];
 		if($this->items){
 			if(array_key_exists($id, $this->items)){

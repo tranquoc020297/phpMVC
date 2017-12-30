@@ -22,7 +22,7 @@ class ProductType{
 
     public static function find($MaSP){
         $sql = "SELECT TenLoaiSanPham FROM loaisanpham WHERE MaLoaiSanPham = $MaSP AND BiXoa = FALSE LIMIT 1";
-        if($data = Provider::ExecuteNonQuery($sql)){
+        if($data = Provider::ExecuteQuery($sql)){
             $item = new Product;
             while($row = mysqli_fetch_array($data)){
                 $item->TenLoaiSP = $row['TenLoaiSanPham'];
@@ -35,7 +35,7 @@ class ProductType{
         $sql = "SELECT SP.MaLoaiSanPham,SP.TenLoaiSanPham
                 FROM loaisanpham SP
                 WHERE SP.BiXoa = FALSE";
-        if($data = Provider::ExecuteNonQuery($sql))
+        if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
 

@@ -34,4 +34,4 @@
     </tbody>
 </table>
 </div>
-<script src="../../app/public/source/admin/js/user.js"></script>
+<script src="source/admin/js/user.js"></script>

@@ -42,7 +42,7 @@
                   </table>
 
                   <div style="text-align:center">
-                    <a href="products"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
+                    <a href="<?= route('admin','products') ?>"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                   </table>
 
                   <div style="text-align:center">
-                    <a href="types"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
+                    <a href="<?= route('admin','types') ?>"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
                   </table>
 
                   <div style="text-align:center">
-                    <a href="factories"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
+                    <a href="<?= route('admin','factories') ?>"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
                 </div>
               </div>
@@ -136,7 +136,7 @@
                   </table>
                   
                   <div style="text-align:center">
-                    <a href="users"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
+                    <a href="<?= route('admin','users') ?>"><button class="btn btn-outline-info btn-sm">Xem Thêm</button></a>
                   </div>
                 </div>
               </div>
