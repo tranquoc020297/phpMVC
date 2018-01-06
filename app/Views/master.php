@@ -14,16 +14,29 @@
     <title>Thế Giới Siêu Xe</title>
 </head>
 <body>
+  
     <?php include('modules/header.php') ?>
-    <div >
+    <div id="main-contain" class="container" style="min-height:600px;">
         <?php include($this->partial) ?>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     </div>
     <?php include('modules/footer.php') ?>
+    
     <!-- Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="source/js/main.js"></script>
+    <script src="source/js/order.js"></script>
+    <?php if($this->partial == 'page/order.php'): ?>
+        <script src="source/js/auth.js"></script>
+    <?php endif; ?>
     <script>
+        $(document).ready(function(){
+            refreshCaptcha(1);
+            $("#matkhau").keyup(function() {
+            passwordStrength($(this).val());
+            });
+        });
        $(window).scroll(function() {
         if ($(this).scrollTop() >= 300) {   
             $('#return-to-top').fadeIn(200);

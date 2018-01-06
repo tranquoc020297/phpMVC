@@ -14,7 +14,7 @@ function showProduct(id){
 function loadProduct(id){
     $.ajax({
         type: "POST",
-        url: "show",
+        url: "http://localhost:21212/phpMVC/admin/showProduct",
         data: {id: id},
         success: function(response) {
             var data = JSON.parse(response);
@@ -28,8 +28,8 @@ function loadProduct(id){
             $('#soluongban').val(data['SoLuongBan']);
             tinymce.get("mota").setContent(data['MoTa'] + " ");
             $('#bixoa').val(data['BiXoa']);
-            $('#featureImage').after('<img src="'+'../app/public/source/img/product/'+ data['MaLoaiSP'] +'/' + data['HinhSP'] + '" width="150">');
-            $('#exampleModal').modal();
+            $('#featureImage').after('<img src="source/img/product/'+ data['MaLoaiSP'] +'/' + data['HinhSP'] + '" width="150">');
+            $('#productModal').modal();
        
         }
     });
@@ -61,11 +61,13 @@ $('#saveProduct').on('click',function(){
                     "SoLuongTon":slt,"SoLuongBan":slb,"BiXoa":bixoa,"NgayNhap":ngaynhap,
                     "HinhSP":hinh,"SoLuotXem":0,"MoTa":mota
                 };
+ 
     $.ajax({
         type: "POST",
         url: "saveProduct",
         data: {'sp':JSON.stringify(dulieu)},
         success: function(response) {
+      
             if(response == '0'){
                 alert('Lưu thành công');
                 if(id==null)

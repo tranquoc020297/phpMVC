@@ -1,6 +1,11 @@
 
 <div class="container" style="padding:5px" >
 <div class="row">
+<div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  style="margin:5% 0">
+    <h1 class="gallery-title">Sản Phẩm  </h1>
+
+</div>
+
 <?php
     if(isset($_GET["trang"])){
         $trang=$_GET["trang"];
@@ -41,16 +46,15 @@
 
 </div>
 <center>
-<?php
+<!-- <?php
     $item=$this->types[0];
     $sum=$this->phantrang;
     $sumtong=count($sum);
-    $sumtrang=ceil($sumtong/4);
-    for($i=1; $i<=$sumtrang;$i++):
+    $sumtrang=ceil($sumtong/4);   
 ?>
-    
-    <a href="<?= route('page','type',$item->MaLoaiSP)?>&trang=<?= $i ?>"><?= $i ?></a>
+    <?php for($i=1; $i<=$sumtrang;$i++): ?>
+    <a href="<?= route('page','type',$item->MaLoaiSP)?>&<?= $i ?>"><?= $i ?></a>
 
-<?php endfor; ?>
+<?php endfor; ?> -->
    
 </center>

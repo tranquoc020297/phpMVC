@@ -4,10 +4,12 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="#">Liên Hệ</a>
-				</li>
+        </li>
+        
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Sản Phẩm
@@ -26,7 +28,8 @@
 					?>
 					</div>
 				
-				</li>	
+        </li>	
+        
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Bảng Giá
@@ -39,23 +42,10 @@
 						<a class="dropdown-item" href="#"> Trên 50 tỷ</a>
 					</div>
 				</li>
-<!-- 			
-				<li>
-					<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					</form>
-				
-				</li> -->
+
 			</ul>
 
-			<!-- 
-			<a href="#"><button class="btn btn-outline-primary">Đăng Nhập</button></a>
-			<div>&nbsp;&nbsp;</div>
-			<a href="#"><button class="btn btn-outline-primary">Đăng Ký</button></a>		
-			<div>&nbsp;&nbsp;</div>
-			<a href="#">
-			<button class="btn btn-outline-info"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i>Giỏ Hàng</span></button> </a>-->
+			
 	<ul class="navbar-nav my-auto">
     <li class="nav-item dropdown">
       <button class="btn btn-outline-info my-2 my-sm-0" id="navbarDropdownCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +64,7 @@
             <a class="dropdown-item" onclick="removeCartItem(<?= $item['item']->MaSP ?>)">
               <span><img width="50" src="source/img/product/<?= trim($item['item']->MaLoaiSP)?>/<?=trim($item['item']->HinhSP)?>" alt=""></span>
               <span><?= $item['item']->TenSP ?></span>
-              <span><?= $item['item']->GiaSP ?></span>
+              <span><?= number_format($item['item']->GiaSP) ?></span>
               <span>x<?= $item['qty'] ?></span>
               <span class="badge badge-pill badge-warning"><i class="fa fa-times" aria-hidden="true"></i></span>
             </a>
@@ -83,7 +73,7 @@
         </div>
         <?php if(Session::has('cart')): ?>
           <div class="dropdown-divider"></div>
-          <div id="totalPrice" class="dropdown-item">Tổng: <span><?= Session::has('cart')?Session::get('cart')->totalPrice:0 ?></span></div>
+          <div id="totalPrice" class="dropdown-item">Tổng: <span><?= number_format(Session::has('cart')?Session::get('cart')->totalPrice:0) ?></span></div>
           <div class="dropdown-divider"></div>
           <div id="removeAllCart" class="dropdown-item"><button class="btn btn-outline-warning">Xóa hết giỏ hàng</button></div>
           <div class="dropdown-divider"></div>
@@ -129,10 +119,11 @@
           </span>
         </button>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+          <a class="dropdown-item" href="<?= route('page','profile') ?>">Thông tin cá nhân</a>
           <?php if(Session::get('auth')->role == 1): ?>
           <a class="dropdown-item" href="<?= route('admin','index') ?>">Trang quản trị</a>
           <?php endif; ?>
+          <a class="dropdown-item" href="<?= route('page','payhistory') ?>">Lịch sử giao dịch</a>
           <a class="dropdown-item" href="<?= route('auth','logout') ?>">Đăng xuất</a>
         </div>
     </li>
@@ -140,7 +131,5 @@
       <a href="<?= route('auth','login') ?>"><button class="btn btn-outline-info my-2 my-sm-0"> Đăng nhập</button></a>
     <?php endif; ?>
  	 </ul>
-
-
 </div>
 </nav>

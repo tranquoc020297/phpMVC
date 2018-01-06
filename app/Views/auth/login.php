@@ -50,6 +50,7 @@ if(Session::has('auth'))
     </div>
     <!-- Javascript files-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="source/admin/js/front.js"></script>
     <script src="source/admin/vendor/jquery-validation/jquery.validate.min.js"></script>
@@ -58,5 +59,12 @@ if(Session::has('auth'))
     <script src="source/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="source/js/auth.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#matkhau").keyup(function() {
+          passwordStrength($(this).val());
+        });
+      });
+    </script>
   </body>
 </html>

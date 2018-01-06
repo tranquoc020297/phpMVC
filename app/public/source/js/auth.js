@@ -1,8 +1,26 @@
 //Start signup
+$(document).ready(function(){
+    refreshCaptcha(1);
+});
+
 $('#signUp').on('click',function(){
     if(check())
         save(check());
 });
+
+$('#reload').on('click',function(){
+    var id = Math.random();
+    refreshCaptcha(id);
+});
+
+function refreshCaptcha(id){
+    $.ajax({
+        url:'http://localhost:21212/phpMVC/page/newCaptcha',
+        success:(response)=>{
+            $('#captchaImage').prop('src','http://localhost:21212/phpMVC/page/newCaptcha?id=' + response);
+        }
+    });
+}
 
 function find(ten){
     var flag = false;
@@ -29,11 +47,10 @@ function save(dulieu){
             if(response == '0'){
                 alert('Đăng ký thành công');
                 $('#signUpModal').modal('toggle');
-                $('#signUp').text('Đăng ký');
             }
             else{
                 alert('Đăng ký thất bại');
-                $('#signUp').text('Đăng ký');
+                
             }
         }
     });
@@ -43,6 +60,7 @@ function check(){
     var tendangnhap = $('#tendangnhap').val();
     var matkhau = $('#matkhau').val();
     var nhaplaimatkhau = $('#nhaplaimatkhau').val();
+    var ngaysinh = $('#ngaysinh').val();
     var tenhienthi = $('#tenhienthi').val();
     var diachi = $('#diachi').val();
     var dienthoai = $('#dienthoai').val();
@@ -66,18 +84,47 @@ function check(){
         return false;
     }
 
-    if(tenhienthi =='' || diachi == '' || dienthoai == '' || email == ''){
+    if(tenhienthi =='' || diachi == '' || dienthoai == '' || email == '' || captcha == '' || ngaysinh == ''){
         dangerAlert('Vui lòng nhập đủ thông tin');
+        return false;
+    }
+    
+    if(!checkCaptcha()){
+        dangerAlert('Mã captcha không đúng');
         return false;
     }
 
     $('#message').html('');
 
     var data = {
-        "TenDangNhap":tendangnhap, "MatKhau":matkhau,"TenHienThi":tenhienthi,"DiaChi":diachi,
+        "TenDangNhap":tendangnhap, "MatKhau":matkhau,"TenHienThi":tenhienthi,"NgaySinh":ngaysinh,"DiaChi":diachi,
         "DienThoai":dienthoai,"Email":email,"BiXoa":0,"MaLoaiTaiKhoan":3
     };
     return JSON.stringify(data);
+}
+function refreshCaptcha(id){
+    $.ajax({
+        url:'http://localhost:21212/phpMVC/page/newCaptcha',
+        success:(response)=>{
+            $('#captchaImage').prop('src','http://localhost:21212/phpMVC/page/newCaptcha?id=' + response);
+        }
+    });
+}
+
+function checkCaptcha(){
+    var flag = true;
+    var captcha = $('#captcha').val();
+    $.ajax({
+        url: 'http://localhost:21212/phpMVC/page/validateCaptcha',
+        type:'POST',
+        data: {captcha},
+        async:false,
+        success: (response)=>{
+            if(response == '1')
+                flag = false;
+        }
+    });
+    return flag;
 }
 
 function dangerAlert(message){
@@ -98,6 +145,38 @@ function warningAlert(message){
     $('#message').hide(2000);
 }
 
+function passwordStrength(password) {
+
+	var msg = ['', 'weak', 'weak', 'good', 'very good', 'excellent'];
+
+	var desc = ['0%', '20%', '40%', '60%', '80%', '100%'];
+	
+	var descClass = ['', 'bg-danger', 'bg-danger', 'bg-warning', 'bg-success', 'bg-success'];
+
+	var score = 0;
+
+	// if password bigger than 6 give 1 point
+	if (password.length > 6) score++;
+
+	// if password has both lower and uppercase characters give 1 point	
+	if ((password.match(/[a-z]/)) && (password.match(/[A-Z]/))) score++;
+
+	// if password has at least one number give 1 point
+	if (password.match(/\d+/)) score++;
+
+	// if password has at least one special caracther give 1 point
+	if ( password.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) )	score++;
+
+	// if password bigger than 12 give another 1 point
+	if (password.length > 10) score++;
+	
+	// Display indicator graphic
+	$(".jak_pstrength").removeClass(descClass[score-1]).addClass(descClass[score]).css( "width", desc[score] );
+
+	// Display indicator text
+	$(".jak_pstrength").text(msg[score]);
+}
+
 //End Signup
 
 
@@ -116,7 +195,7 @@ $('#login').on('click',function(){
             beforeSend:() => $('#login').val('Đang kết nối...'),
             success:(response) => {
                 if(response == '0'){
-                    window.location.replace("http://localhost:21212/phpMVC/admin");
+                    window.location.replace(window.location.href);
                 }
                 else{
                     loginError();

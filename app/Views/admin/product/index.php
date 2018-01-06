@@ -21,7 +21,7 @@
         <tr id="sp<?= $item->MaSP ?>">
             <th scope="row"><?= $item->MaSP ?></th>
             <td><?= $item->TenSP ?></td>
-            <td><?= $item->GiaSP ?></td>
+            <td><?= number_format($item->GiaSP) ?></td>
             <td><?= $item->HinhSP ?></td>
             <td><?= substr($item->MoTa,0,100)?>..</td>
             <td style="text-align:right">

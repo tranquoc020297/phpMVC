@@ -1,14 +1,16 @@
 <nav class="side-navbar">
   <div class="side-navbar-wrapper">
     <div class="sidenav-header d-flex align-items-center justify-content-center">
-      <div class="sidenav-header-inner text-center"><img src="source/img/product/5/5.jpg" alt="person" class="img-fluid rounded-circle">
-        <h2 class="h5 text-uppercase">Thế Giới</h2><span class="text-uppercase">Xe Hơi</span>
-      </div>
+      <a href="<?= route('admin','profile') ?>">
+        <div class="sidenav-header-inner text-center"><img src="source/img/product/5/5.jpg" alt="person" class="img-fluid rounded-circle">
+          <h2 class="h5 text-uppercase">Thế Giới</h2><span class="text-uppercase">Xe Hơi</span>
+        </div>
+      </a>
       <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
     </div>
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
-        <li class="active"><a href="index"> <i class="icon-home"></i><span>Home</span></a></li>
+        <li class="active"><a href="<?= route('admin','index') ?>"> <i class="icon-home"></i><span>Home</span></a></li>
       </ul>
     </div>
     <div class="admin-menu">

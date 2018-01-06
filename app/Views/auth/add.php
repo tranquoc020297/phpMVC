@@ -23,6 +23,13 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-12">
+                    <label for="ngaysinh" class="label-custom">Ngày Sinh</label>
+                    <input type="text" name="ngaysinh" id="ngaysinh" onfocus="(this.type='date')" onblur="(this.type='text')" valid>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-6">
                     <label for="matkhau" class="label-custom">Mật Khẩu</label>
                     <input type="password" name="matkhau" id="matkhau">
@@ -42,16 +49,25 @@
                     <input type="text" name="dienthoai" id="dienthoai">
                 </div>
             </div>
+
+            <div class="row">
                 <div class="col-md-6">
                     <label for="email" class="label-custom">Email</label>
                     <input type="email" name="email" id="email">
                 </div>
+                <div class="col-md-6">
+                    <label for="captcha" class="label-custom">Captcha</label>
+                    <input type="text" name="captcha" id="captcha">
+                </div>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
+        <img id="captchaImage" src="source/captcha/bj.jpg" width="100" alt="k thể tải captcha">
+        <a href="javascript:;"><img id="reload" src="source/captcha/reload.png" alt=""></a>
         <button type="button" class="btn btn-warning" data-dismiss="modal">Thoát</button>
         <button id="signUp" type="button" class="btn btn-primary">Đăng ký</button>
-      </div>
+    </div>
     </div>
   </div>
 </div>

@@ -185,3 +185,33 @@ function loadMore(id){
             appenSearch(data);
     });
 }
+
+$('#reload').on('click',function(){
+    var id = Math.random();
+    refreshCaptcha(id);
+});
+
+function refreshCaptcha(id){
+    $.ajax({
+        url:'http://localhost:21212/phpMVC/page/newCaptcha',
+        success:(response)=>{
+            $('#captchaImage').prop('src','http://localhost:21212/phpMVC/page/newCaptcha?id=' + response);
+        }
+    });
+}
+
+function checkCaptcha(){
+    var flag = true;
+    var captcha = $('#captcha').val();
+    $.ajax({
+        url: 'http://localhost:21212/phpMVC/page/validateCaptcha',
+        type:'POST',
+        data: {captcha},
+        async:false,
+        success: (response)=>{
+            if(response == '1')
+                flag = false;
+        }
+    });
+    return flag;
+}

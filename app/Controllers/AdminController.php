@@ -39,6 +39,13 @@ class AdminController extends Controller{
         }
         echo "1";
     }
+    public function deleteProduct(){
+        $product = Product::find($_POST['id']);
+        if($product->delete())
+            echo '0';
+        else
+            echo '1';
+    }
     // public function login(){
     //     return $this->view('admin.user.login',null);
     // }
@@ -57,5 +64,14 @@ class AdminController extends Controller{
     }
     public function bills(){
         return $this->view('bill.index','admin.dashdoard');
+    }
+    public function updateBillState(){
+        $bill = Bill::find($_POST['id']);
+        $bill->MaTinhTrang = $_POST['tinhtrang'];
+        if($bill->save())
+            print_r (json_encode(Bill::all()));
+    }
+    public function profile(){
+        return $this->view('user.profile','admin.dashdoard');
     }
 }

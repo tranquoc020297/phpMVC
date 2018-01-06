@@ -3,7 +3,7 @@
 <div class="container">
 <p><a href="javascript:" onclick="addCart(<?= $item->MaSP ?>)"><button class="btn btn-outline-info" style="float:right">Thêm<span class="fa fa-cart-arrow-down"></span></button></a></p>
 <p style="color:red"> <?= $this->item->TenSP ?></p>
-<p style="color:red">Giá: <?= $this->item->GiaSP ?>&nbsp;VNĐ</p>
+<p style="color:red">Giá: <?= number_format($this->item->GiaSP) ?>&nbsp;VNĐ</p>
 <p> <?= $this->item->MoTa ?></p>
 <p> Lượt Xem <?= $this->item->SoLuotXem ?></p>
 <p> Số Lượng Đã Bán <?= $this->item->SoLuongBan?></p>

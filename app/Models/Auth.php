@@ -1,13 +1,15 @@
 <?php
 class Auth{
+    public $id;
     public $username;
     public $password;
     public $displayName;
     public $role;
     public $roleName;
+
     public static function login($username,$password){
         $md5_password = md5($password);
-        $sql = "SELECT TK.TenDangNhap,TK.MatKhau,TK.TenHienThi,TK.MaLoaiTaiKhoan,LTK.TenLoaiTaiKhoan
+        $sql = "SELECT TK.MaTaiKhoan,TK.TenDangNhap,TK.MatKhau,TK.TenHienThi,TK.MaLoaiTaiKhoan,LTK.TenLoaiTaiKhoan
                 FROM taikhoan TK, loaitaikhoan LTK
                 WHERE TK.TenDangNhap = '$username' AND TK.MatKhau = '$md5_password' AND TK.MaLoaiTaiKhoan = LTK.MaLoaiTaiKhoan";
         if($result = Provider::ExecuteQuery($sql))
@@ -16,6 +18,7 @@ class Auth{
             {
                 $data = mysqli_fetch_array($result);
                 $auth = new Auth;
+                $auth->id = $data['MaTaiKhoan'];
                 $auth->username = $data['TenDangNhap'];
                 $auth->password = $data['MatKhau'];
                 $auth->displayName = $data['TenHienThi'];
@@ -27,6 +30,8 @@ class Auth{
         }
         return false;
     }
+    
+
     public static function logout(){
         Session::forget('auth');
     }

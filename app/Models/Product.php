@@ -31,11 +31,10 @@ class Product{
         else:
             $sql = "UPDATE sanpham SET TenSanPham = '$this->TenSP', HinhURL = '$this->HinhSP', GiaSanPham = '$this->GiaSP', NgayNhap = '$this->NgayNhap',
                     SoLuongTon = '$this->SoLuongTon', SoLuongBan = '$this->SoLuongBan', SoLuotXem = '$this->SoLuotXem', MoTa = '$this->MoTa', BiXoa = '$this->BiXoa',
-                    MaLoaiSanPham = '$this->MaLoaiSP', MaHangSanXuat = '$this->MaHangSX' WHERE MaSanPham = $this->MaSP";
+                    MaLoaiSanPham = '$this->MaLoaiSP', MaHangSanXuat = '$this->MaHangSX' WHERE MaSanPham = '$this->MaSP'";
         endif;
         if(Provider::ExecuteNonQuery($sql))
-            return $sql;
-        return $sql;
+            return true;
     }
     public function delete(){
        $sql = "DELETE FROM sanpham WHERE MaSanPham = $this->MaSP";
@@ -58,10 +57,18 @@ class Product{
                 $item->SoLuotXem = $row['SoLuotXem'];
                 $item->BiXoa = $row['BiXoa'];
                 $item->MaLoaiSP = $row['MaLoaiSanPham'];
+                $item->MaHangSX = $row['MaHangSanXuat'];
             }
             return $item;
         }
     }
+    // public static function productType()
+    // {
+    //     $sql="SELECT
+    //             sp.TenLoaiSanPham
+    //         FROM loaisanpham sp"
+
+    // }
     public static function findByName($name){
         $sql = "SELECT * FROM sanpham WHERE TenSanPham LIKE '%$name%' AND BiXoa = FALSE LIMIT 10";
         if($data = Provider::ExecuteQuery($sql))
@@ -118,7 +125,7 @@ class Product{
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaHangSanXuat = $id AND SP.BiXoa = FALSE
-                ORDER BY SP.SoLuongBan DESC LIMIT 0, 10";
+                ORDER BY SP.SoLuongBan DESC LIMIT 0, 8";
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
@@ -161,4 +168,13 @@ class Product{
         }
         return $result;
     }
+    // public static function more($id){
+    //     $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa
+    //     FROM sanpham SP
+    //     WHERE SP.MaSanPham > $id AND SP.BiXoa = FALSE
+    //     LIMIT 0, 8";
+    //     if($data = Provider::ExecuteQuery($sql))
+    //         return self::convert($data);
+    // }
+
 }

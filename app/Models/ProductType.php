@@ -26,6 +26,7 @@ class ProductType{
             $item = new Product;
             while($row = mysqli_fetch_array($data)){
                 $item->TenLoaiSP = $row['TenLoaiSanPham'];
+                // $item->MaLoaiSP = $row['MaLoaiSanPham']
             }
             return $item;
         }

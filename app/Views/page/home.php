@@ -13,21 +13,21 @@
         </div>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="source/img/product/slider/3.jpg" style="width:100%">
+        <a href="#"><img src="source/img/product/slider/3.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Ferrari</strong></h1>
         </div>
         </a>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="source/img/product/slider/4.jpg" style="width:100%">
+        <a href="#"><img src="source/img/product/slider/4.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Lexus</strong></h1>
         </div>
         </a>
     </div>
     <div class="mySlides animate-fading">
-        <a href=""><img src="source/img/product/slider/5.jpg" style="width:100%">
+        <a href="#"><img src="source/img/product/slider/5.jpg" style="width:100%">
         <div class="slide-caption-left">
             <h1><strong>Audi</strong></h1>
         </div>
