@@ -26,7 +26,7 @@
                 <img src="source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" alt="" height="80" width="170">
             </a>
             <p><h5><?= $item->TenSP ?></h5></p>
-            <p><h6><?= $item->GiaSP ?></h6></p>
+            <p><h6><?= number_format($item->GiaSP) ?></h6></p>
             <a class="btn btn-info" href="<?= route('page','detail',$item->MaSP) ?>">Chi tiết <i class="fa fa-chevron-right"></i></a>
             <a class="btn btn-info" onclick="addCart(<?= $item->MaSP ?>)" href="javascipt:;"><i class="fa fa-shopping-cart"></i></a>
             <div class="clearfix" style="margin:5% 0"></div>
@@ -45,7 +45,7 @@
                 <img src="source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" alt="" height="80" width="170">
             </a>
             <p><h5><?= $item->TenSP ?></h5></p>
-            <p><h6><?= $item->GiaSP ?></h6></p>
+            <p><h6><?= number_format($item->GiaSP) ?></h6></p>
             <a class="btn btn-info" href="<?= route('page','detail',$item->MaSP) ?>">Chi tiết <i class="fa fa-chevron-right"></i></a>
             <a class="btn btn-info" onclick="addCart(<?= $item->MaSP ?>)" href="javascipt:;"><i class="fa fa-shopping-cart"></i></a>
             <div class="clearfix" style="margin:5% 0"></div>
