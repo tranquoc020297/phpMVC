@@ -1,5 +1,4 @@
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModal">Thêm User</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModal">Add User</button>
 <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -9,7 +8,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
       <div class="modal-body">
         <form id="uploadForm">
             <div class="row">
@@ -22,19 +20,16 @@
                     <input class="form-control" type="text" name="matkhau" id="matkhau">
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-6">
                     <label for="tenhienthi" class="col-form-label">Tên Hiển Thị</label>
                     <input class="form-control" type="email" name="tenhienthi" id="tenhienthi">
                 </div>
-                
                 <div class="form-group col-6">
                     <label for="diachi" class="col-form-label">Địa Chỉ</label>
                     <input class="form-control" type="text" name="diachi" id="diachi">
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-6">
                     <label for="dienthoai" class="col-form-label">Điện Thoại</label>
@@ -45,7 +40,6 @@
                     <input class="form-control" type="email" name="email" id="email">
                 </div>
             </div>
-            
             <div class="row">
                 <div class="form-group col-6">
                     <label for="bixoa" class="col-form-label">Bị Xóa</label>
@@ -68,7 +62,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveUser">Save</button>
+        <button id="saveUser" type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>

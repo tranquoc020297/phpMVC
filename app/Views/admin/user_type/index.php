@@ -1,6 +1,6 @@
 <div class="container">
     <div style="margin-top: 5%; text-align:center">
-        <h1>Quản Lí Loại Tài Khoản</h1>
+        <h1>Quản Lí Loại Sản Phẩm</h1>
     </div>
     <div style="margin: 1% 0; text-align:right">
         <?php include('add.php') ?>
@@ -14,13 +14,18 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach(UserType::all() as $item):?>
+        <?php foreach(ProductType::all() as $item):?>
             <tr>
-                <th scope="row"><?= $item->MaLoaiTaiKhoan ?></th>
-                <td><?= $item->TenLoaiTaiKhoan ?></td>
-                <td style="text-align:right"><a href="#"><button class="btn btn-warning">Sửa</button></a>&nbsp;<a href="#"><button class="btn btn-danger">Xóa</button></a></td>
+                <th scope="row"><?= $item->MaLoaiSP ?></th>
+                <td><?= $item->TenLoaiSP ?></td>
+                <td style="text-align:right">
+                    <button class="btn btn-warning edit">Sửa</button>
+                    <button onclick="remove(<?= $item->MaLoaiSP ?>)" class="btn btn-danger">Xóa</button>
+                </td>
             </tr>
         <?php endforeach ?>
         </tbody>
     </table>
 </div>
+
+<script src="source/admin/js/product_type.js"></script>

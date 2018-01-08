@@ -27,17 +27,17 @@
 
   <ul class="profile-social-links">
     <li>
-      <a target="_blank" href="https://www.facebook.com/Gack113">
+      <a target="_blank" href="https://www.facebook.com/tranngocquoc02021997">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://twitter.com/Gack113">
+      <a target="_blank" href="https://twitter.com/tranngocquoc02021997">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://github.com/Gack113">
+      <a target="_blank" href="https://github.com/tranngocquoc02021997">
         <i class="fa fa-github"></i>
       </a>
     </li>

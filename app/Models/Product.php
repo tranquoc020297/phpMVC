@@ -62,13 +62,7 @@ class Product{
             return $item;
         }
     }
-    // public static function productType()
-    // {
-    //     $sql="SELECT
-    //             sp.TenLoaiSanPham
-    //         FROM loaisanpham sp"
-
-    // }
+  
     public static function findByName($name){
         $sql = "SELECT * FROM sanpham WHERE TenSanPham LIKE '%$name%' AND BiXoa = FALSE LIMIT 10";
         if($data = Provider::ExecuteQuery($sql))
@@ -109,7 +103,7 @@ class Product{
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaLoaiSanPham = $id AND SP.BiXoa = FALSE
-                ORDER BY SP.SoLuongBan DESC LIMIT 0,4";
+                ORDER BY SP.SoLuongBan DESC LIMIT 0,10";
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }

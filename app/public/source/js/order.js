@@ -1,6 +1,6 @@
 function removeOrderedItem(id){
     $.ajax({
-        url: 'http://banchamp.me/page/reduceCartByOne',
+        url: 'http://localhost:21212/phpMVC/page/reduceCartByOne',
         method: "POST",
         data: {id},
         success: (data)=> {

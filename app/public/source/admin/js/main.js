@@ -1,16 +1,16 @@
-//Load edit form
+//Load edit formProduct
 function editProduct(id){
     loadProduct(id);
 }
 
-//Show item by ID
+//Show product item by ID
 function showProduct(id){
     loadProduct(id);
     $('#saveProduct').prop('disabled',true);
 }
 
 
-//Load data using ajax
+//Load product data using ajax
 function loadProduct(id){
     $.ajax({
         type: "POST",
@@ -28,21 +28,34 @@ function loadProduct(id){
             $('#soluongban').val(data['SoLuongBan']);
             tinymce.get("mota").setContent(data['MoTa'] + " ");
             $('#bixoa').val(data['BiXoa']);
-            $('#featureImage').after('<img src="source/img/product/'+ data['MaLoaiSP'] +'/' + data['HinhSP'] + '" width="150">');
+            $('#featureImage').after('<img src="'+'source/img/product/'+ data['MaLoaiSP'] +'/'+data['HinhSP'] + '" width="150">');
             $('#productModal').modal();
-       
+        }
+    });
+}
+
+function deleteProduct(id){
+    $.ajax({
+        url:'http://localhost:21212/phpMVC/admin/deleteProduct',
+        type:'POST',
+        data:{id},
+        success:(response)=>{
+            if(response === '0')
+                alert('Xóa thành công');
+            else
+                alert('Xóa Thất bại');
         }
     });
 }
 
 
-//Clear form when model closing
+//Clear formProduct when model closing
 $('#productModal').on('hide.bs.modal',function(){
     clearProduct();
 });
 
 
-//Call API save Item
+//Call API save ProductItem
 $('#saveProduct').on('click',function(){
     var ma = $('#ma').val();
     var ten = $('#ten').val();
@@ -61,19 +74,17 @@ $('#saveProduct').on('click',function(){
                     "SoLuongTon":slt,"SoLuongBan":slb,"BiXoa":bixoa,"NgayNhap":ngaynhap,
                     "HinhSP":hinh,"SoLuotXem":0,"MoTa":mota
                 };
- 
     $.ajax({
         type: "POST",
-        url: "saveProduct",
+        url: "http://localhost:21212/phpMVC/admin/saveProduct",
         data: {'sp':JSON.stringify(dulieu)},
         success: function(response) {
-      
             if(response == '0'){
                 alert('Lưu thành công');
                 if(id==null)
-                    saverowProduct(dulieu,0);
+                    saveRowProduct(dulieu,0);
                 else
-                    saverowProduct(dulieu,1);
+                    saveRowProduct(dulieu,1);
                 clearProduct();
             }
             else
@@ -82,7 +93,7 @@ $('#saveProduct').on('click',function(){
     });
 });
 
-//Clear form
+//Clear formProduct
 var clearProduct = function(){
     $('#ma').val('');
     $('#ngaynhap').val('');
@@ -93,28 +104,11 @@ var clearProduct = function(){
     tinymce.get("mota").setContent('');
     $('#featureImage').val('');
     $('#previewImage>img').remove();
-    $('#save').prop('disabled',false);
-}
-
-$("#featureImage").on('change',function () {
-    filePreview(this);
-});
-
-
-//Preview image before save
-function filePreview(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#featureImage + img').remove();
-            $('#featureImage').after('<img src="'+e.target.result+'" width="150">');
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
+    $('#saveProduct').prop('disabled',false);
 }
 
 
-//Save row after call API success
+//Save row product after call API success
 function saveRowProduct(data,status){
     var lastRowID = $('table tbody tr:last').prop('id').substr(2);
     var id = status == 0?parseInt(lastRowID)+1:data.MaSP;
@@ -137,6 +131,23 @@ function saveRowProduct(data,status){
         $('#sp'+data.MaSP).replaceWith(content);
 }
 
+
+$("#featureImage").on('change',function () {
+    filePreview(this);
+});
+
+
+//Preview image before save
+function filePreview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#featureImage + img').remove();
+            $('#featureImage').after('<img src="'+e.target.result+'" width="150">');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
 // Scroll to Top
 $(window).scroll(function() {

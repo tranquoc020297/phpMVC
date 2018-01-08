@@ -8,7 +8,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Tên</th>
             <th style="text-align:right">Thao Tác</th>
             </tr>
@@ -18,9 +18,14 @@
             <tr>
                 <th scope="row"><?= $item->MaLoaiSP ?></th>
                 <td><?= $item->TenLoaiSP ?></td>
-                <td style="text-align:right"><a href="#"><button class="btn btn-warning">Sửa</button></a>&nbsp;<a href="#"><button class="btn btn-danger">Xóa</button></a></td>
+                <td style="text-align:right">
+                    <button class="btn btn-warning edit">Sửa</button>
+                    <button onclick="remove(<?= $item->MaLoaiSP ?>)" class="btn btn-danger">Xóa</button>
+                </td>
             </tr>
         <?php endforeach ?>
         </tbody>
     </table>
 </div>
+
+<script src="source/admin/js/product_type.js"></script>

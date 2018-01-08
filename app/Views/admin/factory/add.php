@@ -1,4 +1,4 @@
-<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Thêm</span></button>
+<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Factory</span></button>
 <!-- Modal-->
 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
 <div role="document" class="modal-dialog">
@@ -9,6 +9,7 @@
     </div>
     <div class="modal-body">
         <form>
+            <input id="id" type="text" hidden value="">
             <div class="form-group">
                 <label class="col-form-label">Tên</label>
                 <input type="text" placeholder="Nhập tên hãng" class="form-control" id="ten">
@@ -21,7 +22,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" data-dismiss="modal" class="btn btn-warning">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button id="saveFactory" type="button" class="btn btn-primary">Save</button>
     </div>
     </div>
 </div>

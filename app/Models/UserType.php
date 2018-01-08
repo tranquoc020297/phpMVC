@@ -3,6 +3,17 @@
 class UserType{
     public $MaLoaiTaiKhoan;
     public $TenLoaiTaiKhoan;
+    
+    public function FromJson($obj){
+        $data = json_decode($obj,true);
+        foreach($data as $key => $val)
+        {
+            if(property_exists(__CLASS__,$key))
+            {
+                $this->$key =  $val;
+            }
+        }
+    }
 
     public function save(){
         if(!$this->MaLoaiSP)
@@ -19,7 +30,7 @@ class UserType{
             return true;
     }
 
-    public function find($id){
+    public static function find($id){
         $sql = "SELECT MaLoaiTaiKhoan,TenLoaiTaiKhoan FROM loaitaikhoan WHERE MaLoaiTaiKhoan = $id LIMIT 1";
         if($data = Provider::ExecuteQuery($sql)){
             $item = new Product;

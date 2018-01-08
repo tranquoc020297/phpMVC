@@ -36,4 +36,3 @@
 </div>
 <script type="text/javascript" src="source/admin/plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="source/admin/plugin/tinymce/init-tinymce.js"></script>
-<script src="source/admin/js/main.js"></script>

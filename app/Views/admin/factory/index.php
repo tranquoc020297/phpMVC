@@ -21,13 +21,12 @@
                 <td><?= $item->TenHangSX ?></td>
                 <td><?= $item->HinhHangSX ?></td>
                 <td style="text-align:right">
-                    <a href="#"><button class="btn btn-warning">Sửa</button></a>
-                    &nbsp;
-                    <a href="#"><button class="btn btn-danger">Xóa</button>
-                    </a>
+                    <button class="btn btn-warning edit">Sửa</button>
+                    <button onclick="remove(<?= $item->MaHangSX ?>)" class="btn btn-danger">Xóa</button>
                 </td>
             </tr>
         <?php endforeach ?>
         </tbody>
     </table>
 </div>
+<script src="source/admin/js/factory.js"></script>

@@ -1,11 +1,13 @@
 <?php
 require_once('libs/autoload.php');
-if(!Session::has('auth')):
-    header("location:".route('auth','login'));
-elseif(Session::get('auth')->role != 1):
-    header("location:".route('page','index'));
-endif;
 class AdminController extends Controller{
+    public function __construct(){
+        if(!Session::has('auth'))
+            header("location: ../auth/login");
+        if(Session::get('auth')->role != 1)
+            header("location: ../page");
+        parent::__construct();
+    }
     public function index(){
         return $this->view('modules.table','admin.dashdoard');
     }
@@ -24,6 +26,7 @@ class AdminController extends Controller{
     public function usertypes(){
         return $this->view('user_type.index','admin.dashdoard');
     }
+    //Product Activity
     public function showProduct(){
       $item =  Product::find($_POST['id']);
       print_r(json_encode($item));
@@ -31,13 +34,13 @@ class AdminController extends Controller{
     public function saveProduct(){
         $product = new Product;
         $product->FromJson($_POST['sp']);
-        if(!$product->MaSP)
+        if($product->MaSP == null)
             $product->NgayNhap = date('Y-m-d H:i:s');
         if($product->save()){
-            echo "0";
+            echo '0';
             return;
         }
-        echo "1";
+        echo '1';
     }
     public function deleteProduct(){
         $product = Product::find($_POST['id']);
@@ -46,22 +49,43 @@ class AdminController extends Controller{
         else
             echo '1';
     }
-    // public function login(){
-    //     return $this->view('admin.user.login',null);
-    // }
+    //User Activity
     public function showUser(){
         $item = User::find($_POST['id']);
         print_r(json_encode($item));
     }
-    public function saveUser(){
-        $user = new User;
-        $user->FromJson($_POST['usr']);
-        if($user->save()){
-            echo '0';
+    public function saveUserRole(){
+        $user = User::find($_POST['id']);
+        $user->MaLoaiTaiKhoan = $_POST['role'];
+        if($user->save())
+        {
+            print_r(json_encode(User::all()));
             return;
         }
         echo '1';
     }
+    public function saveUser(){
+        $user = new User;
+        $user->FromJson($_POST['usr']);
+        $user->MatKhau = md5($user->MatKhau);
+        if($user->save()){
+            print_r(json_encode(User::all()));
+            return;
+        }
+        echo '1';
+    }
+    public function deleteUser(){
+        $user = User::find($_POST['id']);
+        if($user->delete()){
+            print_r(json_encode(User::all()));
+            return;
+        }
+        echo '1';
+    }
+    public function profile(){
+        return $this->view('user.profile','admin.dashdoard');
+    }
+    //Bill Activity
     public function bills(){
         return $this->view('bill.index','admin.dashdoard');
     }
@@ -71,7 +95,61 @@ class AdminController extends Controller{
         if($bill->save())
             print_r (json_encode(Bill::all()));
     }
-    public function profile(){
-        return $this->view('user.profile','admin.dashdoard');
+    // Categories
+    public function saveProductType(){
+        $lsp = new ProductType;
+        $lsp->FromJson($_POST['lsp']);
+        if($lsp->save()){
+            print_r(json_encode(ProductType::all()));
+            return;
+        }
+        echo '1';
+    }
+    public function deleteProductType(){
+        $producttype = ProductType::find($_POST['id']);
+        if($producttype->delete())
+        {
+            print_r(json_encode(ProductType::all()));
+            return;
+        }
+            echo '1';
+    }
+    //Factory
+    public function saveFactory(){
+        $hsx = new Factory;
+        $hsx->FromJson($_POST['hsx']);
+        if($hsx->save()){
+            print_r(json_encode(Factory::all()));
+            return;
+        }
+        echo '1';
+    }
+    public function deleteFactory(){
+        $factory = Factory::find($_POST['id']);
+        if($factory->delete())
+        {
+            print_r(json_encode(Factory::all()));
+            return;
+        }
+            echo '1';
+    }
+    //User types
+    public function saveUserType(){
+        $usrtype = new UserType;
+        $usrtype->FromJson($_POST['usrtype']);
+        if($usrtype->save()){
+            print_r(json_encode(UserType::all()));
+            return;
+        }
+        echo '1';
+    }
+    public function deleteUserType(){
+        $usrtype = UserType::find($_POST['id']);
+        if($usrtype->delete())
+        {
+            print_r(json_encode(UserType::all()));
+            return;
+        }
+            echo '1';
     }
 }

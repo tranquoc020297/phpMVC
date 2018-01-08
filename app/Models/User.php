@@ -4,11 +4,13 @@ class User{
     public $TenDangNhap;
     public $MatKhau;
     public $TenHienThi;
+    public $NgaySinh;
     public $DiaChi;
     public $DienThoai;
     public $Email;
     public $BiXoa;
     public $MaLoaiTaiKhoan;
+    public $TenLoaiTaiKoan;
     public function FromJson($obj){
         $data = json_decode($obj,true);
         foreach($data as $key => $val)
@@ -21,7 +23,7 @@ class User{
     }
     public function save(){
         if($this->MaTaiKhoan == null):
-            $sql = "INSERT INTO taikhoan VALUES (null,'$this->TenDangNhap','$this->MatKhau','$this->TenHienThi'
+            $sql = "INSERT INTO taikhoan VALUES (null,'$this->TenDangNhap','$this->MatKhau','$this->TenHienThi','$this->NgaySinh'
             ,'$this->DiaChi',$this->DienThoai,'$this->Email','$this->BiXoa',
             '$this->MaLoaiTaiKhoan')";
         else:
@@ -29,11 +31,12 @@ class User{
                     SET TenDangNhap = '$this->TenDangNhap',
                         MatKhau = '$this->MatKhau',
                         TenHienThi = '$this->TenHienThi',
+                        NgaySinh = '$this->NgaySinh',
                         DiaChi = '$this->DiaChi',
                         DienThoai = '$this->DienThoai',
                         Email = '$this->Email', BiXoa = '$this->BiXoa',
                         MaLoaiTaiKhoan = '$this->MaLoaiTaiKhoan'
-                    WHERE MaLoaiTaiKhoan = $this->MaLoaiTaiKhoan";
+                    WHERE MaTaiKhoan = $this->MaTaiKhoan";
         endif;
         if(Provider::ExecuteNonQuery($sql))
             return true;
@@ -52,6 +55,7 @@ class User{
                 $item->TenDangNhap = $row['TenDangNhap'];
                 $item->MatKhau = $row['MatKhau'];
                 $item->TenHienThi = $row['TenHienThi'];
+                $item->NgaySinh = $row['NgaySinh'];
                 $item->DiaChi = $row['DiaChi'];
                 $item->DienThoai = $row['DienThoai'];
                 $item->Email = $row['Email'];
@@ -70,6 +74,7 @@ class User{
                 $item->TenDangNhap = $row['TenDangNhap'];
                 $item->MatKhau = $row['MatKhau'];
                 $item->TenHienThi = $row['TenHienThi'];
+                $item->NgaySinh = $row['NgaySinh'];
                 $item->DiaChi = $row['DiaChi'];
                 $item->DienThoai = $row['DienThoai'];
                 $item->Email = $row['Email'];
@@ -81,8 +86,10 @@ class User{
     }
     public static function all($num = 0){
         $sl = $num !=0 ? "LIMIT $num": "";
-        $sql = "SELECT MaTaiKhoan, TenDangNhap,TenHienThi, DiaChi, DienThoai, Email, MaLoaiTaiKhoan
-                FROM taikhoan ".$sl;
+        $sql = "SELECT TK.MaTaiKhoan, TK.TenDangNhap,TK.TenHienThi, TK.DiaChi,
+                        TK.DienThoai, TK.Email, TK.MaLoaiTaiKhoan, LTK.TenLoaiTaiKhoan
+                FROM taikhoan TK, loaitaikhoan LTK
+                WHERE TK.MaLoaiTaiKhoan = LTK.MaLoaiTaiKhoan".$sl;
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
@@ -104,6 +111,7 @@ class User{
             $item->DienThoai = $row['DienThoai'];
             $item->Email = $row['Email'];
             $item->MaLoaiTaiKhoan = $row['MaLoaiTaiKhoan'];
+            $item->TenLoaiTaiKhoan = $row['TenLoaiTaiKhoan'];
             $result[] = $item;
         }
         return $result;
