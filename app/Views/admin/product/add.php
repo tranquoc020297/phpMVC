@@ -1,9 +1,10 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal"><span><i class="fa fa-plus" aria-hidden="true"></i> Thêm</span></button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal"><span><i class="fa fa-plus" aria-hidden="true"></i> Champion</span></button>
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sản phẩm mới</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tài khoản mới</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,13 +18,11 @@
                     <label for="ten" class="col-form-label">Tên</label>
                     <input class="form-control" type="text" name="name" id="ten">
                 </div>
-
                 <div class="form-group col-6">
                     <label for="gia" class="col-form-label">Giá</label>
                     <input class="form-control" name="gia" id="gia">
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-6">
                     <label for="loai" class="col-form-label">Loại</label>
@@ -33,7 +32,6 @@
                         <?php endforeach ?>
                     </select>
                 </div>
-                
                 <div class="form-group col-6">
                     <label for="nsx" class="col-form-label">Hãng Sản Xuất</label>
                     <select name="hang" id="hang" class="form-control">
@@ -43,7 +41,6 @@
                     </select>
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-6">
                     <label for="soluongton" class="col-form-label">Số Lượng Tồn</label>
@@ -54,7 +51,6 @@
                     <input class="form-control" type="text" name="soluongban" id="soluongban">
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-6">
                     <label for="bixoa" class="col-form-label">Bị Xóa</label>
@@ -68,10 +64,9 @@
                     <input class="form-control" type="file" name="featureImage" id="featureImage">
                 </div>
             </div>
-            
             <div class="row">
                 <div class="form-group col-12">
-                    <label for="file" class="col-form-label">Mô Tả</label>
+                    <label for="mota" class="col-form-label">Mô Tả</label>
                     <textarea class="form-control" name="mota" id="mota" cols="30" rows="3"></textarea>
                 </div>
             </div>

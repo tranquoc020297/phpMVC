@@ -5,7 +5,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Ngày Lập</th>
                 <th>Tổng Thành Tiền</th>
                 <th>Mã Tài Khoản</th>
@@ -18,7 +18,7 @@
             <tr>
                 <th scope="row"><?= $item->MaHD ?></th>
                 <td><?= $item->NgayLap ?></td>
-                <td><?= number_format($item->TongTien) ?></td>
+                <td><?= $item->TongTien ?></td>
                 <td><?= $item->MaTK ?></td>
                 <td>
                     <button onclick="editState('<?= $item->MaHD ?>')" data-toggle="modal" data-target="#myModal" class="btn btn-info">
@@ -34,3 +34,6 @@
         </tbody>
     </table>
 </div>
+
+<?php include('add.php'); ?>
+<script src="source/admin/js/bill.js"></script>

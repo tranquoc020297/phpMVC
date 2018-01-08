@@ -47,20 +47,18 @@ class Bill{
             return $item;
         }
     }
-    public static function all(){
-        $sql = "SELECT B.MaDonDatHang,B.NgayLap,B.TongThanhTien,B.MaTaiKhoan,B.MaTinhTrang,TT.TenTinhTrang
-                FROM dondathang B, tinhtrang TT
-                WHERE B.MaTinhTrang = TT.MaTinhTrang
-                ORDER BY CAST(SUBSTRING(MaDonDatHang, 3) AS INT)";
-        if($data = Provider::ExecuteQuery($sql))
-            return self::convert($data);
-    }
-
     public static function getByUserID($id){
         $sql = "SELECT B.MaDonDatHang,B.NgayLap,B.TongThanhTien,B.MaTaiKhoan,B.MaTinhTrang,TT.TenTinhTrang
                 FROM dondathang B, tinhtrang TT
                 WHERE B.MaTinhTrang = TT.MaTinhTrang AND B.MaTaiKhoan = '$id'
                 ORDER BY B.NgayLap DESC";
+        if($data = Provider::ExecuteQuery($sql))
+            return self::convert($data);
+    }
+    public static function all(){
+        $sql = "SELECT B.MaDonDatHang,B.NgayLap,B.TongThanhTien,B.MaTaiKhoan,B.MaTinhTrang,TT.TenTinhTrang
+                FROM dondathang B, tinhtrang TT
+                WHERE B.MaTinhTrang = TT.MaTinhTrang";
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }

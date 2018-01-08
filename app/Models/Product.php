@@ -99,14 +99,25 @@ class Product{
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
+
     public static function getByType($id){
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP
                 WHERE SP.MaLoaiSanPham = $id AND SP.BiXoa = FALSE
-                ORDER BY SP.SoLuongBan DESC LIMIT 0,10";
+                ORDER BY SP.SoLuongBan DESC LIMIT 0,5";
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
+
+    public static function getOtherProductType($id){
+        $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
+                FROM sanpham SP
+                WHERE SP.MaLoaiSanPham <> $id AND SP.BiXoa = FALSE
+                ORDER BY SP.SoLuongBan DESC LIMIT 0,5";
+        if($data = Provider::ExecuteQuery($sql))
+            return self::convert($data);
+    }
+
     public static function getType($id){
         $sql = "SELECT SP.MaSanPham, SP.TenSanPham, SP.GiaSanPham, SP.HinhURL, SP.MoTa,SP.MaLoaiSanPham
                 FROM sanpham SP

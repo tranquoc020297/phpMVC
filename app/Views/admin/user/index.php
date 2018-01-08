@@ -63,3 +63,4 @@
     </div>
   </div>
 </div>
+<script src="source/admin/js/user.js"></script>

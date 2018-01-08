@@ -20,7 +20,7 @@
 						$types = ProductType::all();
 						foreach($types as $item){
 					?>
-						<a class="dropdown-item" href="<?= route('page','type',$item->MaLoaiSP )?>&1"><?= $item->TenLoaiSP ?></a>
+						<a class="dropdown-item" href="<?= route('page','type',$item->MaLoaiSP )?>"><?= $item->TenLoaiSP ?></a>
 						
 					
 					<?php	

@@ -37,7 +37,7 @@ class AdminController extends Controller{
         if($product->MaSP == null)
             $product->NgayNhap = date('Y-m-d H:i:s');
         if($product->save()){
-            echo '0';
+            print_r(json_encode(Product::all()));
             return;
         }
         echo '1';
@@ -45,7 +45,7 @@ class AdminController extends Controller{
     public function deleteProduct(){
         $product = Product::find($_POST['id']);
         if($product->delete())
-            echo '0';
+            print_r(json_encode(Product::all()));
         else
             echo '1';
     }

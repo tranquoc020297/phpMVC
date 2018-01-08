@@ -1,3 +1,5 @@
+
+//Save user calling ajax
 $('#saveUser').on('click',function(){
     var ma = $('#idUser').val();
     var tendangnhap = $('#tendangnhap').val();

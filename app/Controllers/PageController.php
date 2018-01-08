@@ -14,9 +14,9 @@ class PageController extends Controller{
         $this->item = Product::find($id);
         $this->item->SoLuotXem++;
         $this->item->save();
-     
-        $this->type = ProductType::find($this->item->MaLoaiSP);
-        return $this->view('page.detail','master','item', 'type');
+        $this->sameItems = Product::getByType($this->item->MaLoaiSP);
+        $this->otherItems = Product::getOtherProductType($this->item->MaLoaiSP);
+        return $this->view('page.detail','master','item','sameItems','otherItems');
     }
 
     public function type($id){
@@ -89,6 +89,20 @@ class PageController extends Controller{
         if(Session::has('auth'))
             return $this->view('page.profile','master');
         header('location:index');
+    }
+
+    public function saveProfileBasicInfo(){
+        $temp = json_decode($_POST['user'],true);
+        $user = User::find($temp['MaTaiKhoan']);
+        $user->TenHienThi = $temp['TenHienThi'];
+        $user->DiaChi = $temp['DiaChi'];
+        $user->DienThoai = $temp['DienThoai'];
+        $user->Email = $temp['Email'];
+        if($user->save()){
+            print_r(json_encode($user));
+        }
+        else
+            echo '1';
     }
     public function newCaptcha(){
         Captcha::new();

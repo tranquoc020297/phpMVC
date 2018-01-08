@@ -40,8 +40,5 @@
     <script src="source/admin/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
     <script src="source/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="source/admin/js/front.js"></script>
-    <script src="source/admin/js/main.js"></script>
-
- 
   </body>
 </html>
