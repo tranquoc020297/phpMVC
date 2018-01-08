@@ -93,7 +93,11 @@ class AdminController extends Controller{
         $bill = Bill::find($_POST['id']);
         $bill->MaTinhTrang = $_POST['tinhtrang'];
         if($bill->save())
-            print_r (json_encode(Bill::all()));
+            print_r(json_encode(Bill::all()));
+    }
+
+    public function showBill(){
+        print_r(json_encode(BillDetail::getByBillID($_POST['id'])));
     }
     // Categories
     public function saveProductType(){

@@ -53,6 +53,15 @@ class BillDetail{
         if($data = Provider::ExecuteQuery($sql))
             return self::convert($data);
     }
+
+    public static function getByBillID($id){
+        $sql = "SELECT BD.MaChiTietDonDatHang,BD.SoLuong,BD.GiaBan,BD.MaDonDatHang,BD.MaSanPham
+                FROM chitietdondathang BD
+                WHERE BD.MaDonDatHang = '$id'";
+        if($data = Provider::ExecuteQuery($sql))
+            return self::convert($data);
+    }
+
     static function convert($data){
         $result = array();
         while($row = mysqli_fetch_array($data)){

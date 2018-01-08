@@ -27,7 +27,7 @@
                     </button>
                 </td>
                 <td style="text-align:center">
-                    <button onclick="showBill(<?= $item->MaHD ?>)" id="xem" class="btn btn-info">Xem</button>&nbsp;
+                    <button class="btn btn-info show">Xem</button>&nbsp;
                 </td>
             </tr>
         <?php endforeach ?>
@@ -36,4 +36,5 @@
 </div>
 
 <?php include('add.php'); ?>
+<?php include('show.php'); ?>
 <script src="source/admin/js/bill.js"></script>
