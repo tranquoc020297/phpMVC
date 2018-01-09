@@ -5,7 +5,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Ngày Lập</th>
                 <th>Tổng Thành Tiền</th>
                 <th>Mã Tài Khoản</th>
