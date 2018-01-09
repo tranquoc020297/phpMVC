@@ -1,4 +1,4 @@
-<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Type</span></button>
+<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary"><span><i class="fa fa-plus" aria-hidden="true"></i> Thêm</span></button>
 <!-- Modal-->
 <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
 <div role="document" class="modal-dialog">
