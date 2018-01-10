@@ -8,7 +8,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Tên</th>
             <th>Logo</th>
             <th style="text-align:right">Thao Tác</th>

@@ -82,7 +82,7 @@ function updateSearch(data){
     $('#resultSearch').html('<h4 class="alert alert-success">'+data.length+' kết quả</h4>')
     $.each(data,(index,item)=>{
         $('#searchBody').append(
-            '<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated fadeInLeft"  style="background-image:url(source/img/product/'+item.TenSP.replace(' ','')+'/cover/'+item.HinhSP+')">'+
+            '<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated fadeInLeft"  style="background-image:url(source/img/product/'+item.MaLoaiSP+'/'+item.HinhSP+')">'+
                 '<div class="project-hover" id="sp'+ item.MaSP +'">'+
                     '<h2>'+item.TenSP+'</h2>'+
                     '<h4><span>'+item.GiaSP+'<i class="fa fa-diamond" aria-hidden="true"></i></span></h4>'+
@@ -107,7 +107,7 @@ function appenSearch(data){
     $('#resultSearch').html('<h4 class="alert alert-success">'+data.length+' kết quả</h4>')
     $.each(data,(index,item)=>{
         $('#searchBody').append(
-            '<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated fadeInLeft"  style="background-image:url(source/img/product/'+item.TenSP.replace(' ','')+'/cover/'+item.HinhSP+')">'+
+            '<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated fadeInLeft"  style="background-image:url(source/img/product/'+item.MaLoaiSP+'/'+item.HinhSP+')">'+
                 '<div class="project-hover" id="sp'+ item.MaSP +'">'+
                     '<h2>'+item.TenSP+'</h2>'+
                     '<h4><span>'+item.GiaSP+'<i class="fa fa-diamond" aria-hidden="true"></i></span></h4>'+
@@ -175,7 +175,7 @@ $('#ajax-load').on('click',function(){
 
 function loadMore(id){
     $.ajax({
-        url: 'http://banchamp.me/page/loadMore',
+        url: '#',
         data:{id},
         type: 'POST',
         beforeSend: () => $('#ajax-load').text('Loading..')

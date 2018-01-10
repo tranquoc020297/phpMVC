@@ -30,7 +30,7 @@
 				
         </li>	
         
-				<li class="nav-item dropdown">
+				<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Bảng Giá
 					</a>
@@ -41,7 +41,7 @@
 						<a class="dropdown-item" href="#"> 20-50 tỷ</a>
 						<a class="dropdown-item" href="#"> Trên 50 tỷ</a>
 					</div>
-				</li>
+				</li> -->
 
 			</ul>
 
@@ -87,7 +87,7 @@
           </a>
         <?php else: ?>
           <div style="display:none" class="dropdown-divider"></div>
-          <div style="display:none" id="totalPrice" class="dropdown-item">Tổng: <span><?= Session::has('cart')?Session::get('cart')->totalPrice:0 ?></span></div>
+          <div style="display:none" id="totalPrice" class="dropdown-item">Tổng: <span><?= number_format(Session::has('cart')?Session::get('cart')->totalPrice:0) ?></span></div>
           <div style="display:none" class="dropdown-divider"></div>
           <div style="display:none" id="removeAllCart" class="dropdown-item"><button class="btn btn-outline-warning">Xóa hết giỏ hàng</button></div>
           <div style="display:none" class="dropdown-divider"></div>

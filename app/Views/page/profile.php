@@ -29,22 +29,22 @@
   <!-- some social links to show off -->
   <ul class="profile-social-links">
     <li>
-      <a target="_blank" href="https://www.facebook.com/Gack113">
+      <a target="_blank" href="https://www.facebook.com/tranquoc020297">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://twitter.com/Gack113">
+      <a target="_blank" href="https://twitter.com/tranquoc020297">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://github.com/Gack113">
+      <a target="_blank" href="https://github.com/tranquoc020297">
         <i class="fa fa-github"></i>
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://www.instagram.com/ln_gach">
+      <a target="_blank" href="https://www.instagram.com/tranquoc020297">
         <i class="fa fa-instagram"></i>
       </a>
     </li>

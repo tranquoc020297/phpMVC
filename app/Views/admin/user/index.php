@@ -8,7 +8,7 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Tên Đăng Nhập</th>
                 <th>Tên Hiển Thị</th>
                 <th>Điện Thoại</th>

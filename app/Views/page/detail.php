@@ -8,8 +8,8 @@
             </button>
         </a>
     </p>
-    <p style="color:red"> <?= $this->item->TenSP ?></p>
-    <p style="color:red">Giá: <?= number_format($this->item->GiaSP) ?>&nbsp;VNĐ</p>
+    <p > <?= $this->item->TenSP ?></p>
+    <p >Giá: <?= number_format($this->item->GiaSP) ?>&nbsp;VNĐ</p>
     <p> <?= $this->item->MoTa ?></p>
     <p> Lượt Xem <?= $this->item->SoLuotXem ?></p>
     <p> Số Lượng Đã Bán <?= $this->item->SoLuongBan?></p>
@@ -26,7 +26,7 @@
                 <img src="source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" alt="" height="80" width="170">
             </a>
             <p><h5><?= $item->TenSP ?></h5></p>
-            <p><h6><?= number_format($item->GiaSP) ?></h6></p>
+            <p><h6><?= number_format($item->GiaSP) ?> VNĐ</h6></p>
             <a class="btn btn-info" href="<?= route('page','detail',$item->MaSP) ?>">Chi tiết <i class="fa fa-chevron-right"></i></a>
             <a class="btn btn-info" onclick="addCart(<?= $item->MaSP ?>)" href="javascipt:;"><i class="fa fa-shopping-cart"></i></a>
             <div class="clearfix" style="margin:5% 0"></div>
@@ -45,7 +45,7 @@
                 <img src="source/img/product/<?= $item->MaLoaiSP ?>/<?= $item->HinhSP ?>" alt="" height="80" width="170">
             </a>
             <p><h5><?= $item->TenSP ?></h5></p>
-            <p><h6><?= number_format($item->GiaSP) ?></h6></p>
+            <p><h6><?= number_format($item->GiaSP) ?> VNĐ</h6></p>
             <a class="btn btn-info" href="<?= route('page','detail',$item->MaSP) ?>">Chi tiết <i class="fa fa-chevron-right"></i></a>
             <a class="btn btn-info" onclick="addCart(<?= $item->MaSP ?>)" href="javascipt:;"><i class="fa fa-shopping-cart"></i></a>
             <div class="clearfix" style="margin:5% 0"></div>

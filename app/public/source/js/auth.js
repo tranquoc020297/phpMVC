@@ -102,14 +102,6 @@ function check(){
     };
     return JSON.stringify(data);
 }
-function refreshCaptcha(id){
-    $.ajax({
-        url:'http://localhost:21212/phpMVC/page/newCaptcha',
-        success:(response)=>{
-            $('#captchaImage').prop('src','http://localhost:21212/phpMVC/page/newCaptcha?id=' + response);
-        }
-    });
-}
 
 function checkCaptcha(){
     var flag = true;
